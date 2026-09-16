@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOMUNDI POP-UP BOOTH - Official Pre-Order 2026</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Prompt -->
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- html2canvas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         tailwind.config = {
@@ -24,251 +28,232 @@
         }
     </script>
     <style>
-        body { font-family: 'Prompt', sans-serif; background-color: #f7f3ec; color: #3d220a; }
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        body { font-family: 'Prompt', sans-serif; background-color: #f7f3ec; color: #3d220a; overflow-x: hidden; }
+        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: #f1ebd9; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #b87333; border-radius: 3px; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
 
-    <header class="bg-gradient-to-r from-brand-900 via-brand-800 to-brand-900 text-amber-50 shadow-xl py-8 px-4 text-center relative overflow-hidden">
+    <!-- Professional Header -->
+    <header class="bg-gradient-to-r from-brand-900 via-brand-800 to-brand-900 text-amber-50 shadow-2xl py-6 px-4 text-center relative overflow-hidden">
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#b87333_1px,transparent_1px)] [background-size:16px_16px]"></div>
         <div class="max-w-5xl mx-auto relative z-10">
-            <span class="bg-brand-500 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-widest shadow-md mb-3 inline-block">Official Pop-Up Pre-Order 2026</span>
-            <h1 class="text-3xl md:text-5xl font-extrabold tracking-wider text-amber-100 drop-shadow">DOMUNDI POP-UP BOOTH</h1>
-            <p class="text-xs md:text-sm text-amber-200 mt-2 font-light tracking-wide">AT ICONIC CRAFT COFFEE EXPO 2026 (16 - 20 SEPT 2026 • ICONSIAM HALL, 7TH FLOOR)</p>
+            <span class="bg-brand-500 text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-widest shadow-md mb-2.5 inline-block">Official Pop-Up Pre-Order 2026</span>
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-wider text-amber-100 drop-shadow">DOMUNDI POP-UP BOOTH</h1>
+            <p class="text-[11px] sm:text-xs md:text-sm text-amber-200 mt-1.5 font-light tracking-wide px-2">AT ICONIC CRAFT COFFEE EXPO 2026 (16 - 20 SEPT 2026 • ICONSIAM HALL, 7TH FLOOR)</p>
             
             <div class="mt-4 flex items-center justify-center">
-                <div onclick="openAdminDirect()" title="เปิดหลังบ้านออนไลน์" class="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-5 py-2 rounded-full text-xs text-amber-300 border border-amber-500/30 shadow-inner cursor-pointer hover:bg-black/60 transition-all select-none">
-                    <span><i class="fa-solid fa-warehouse mr-1"></i> ค่าหิ้ว: ทั่วไป +60 บาท | เสื้อ +80 บาท (คลิกเปิดหลังบ้านออนไลน์)</span>
+                <div onclick="openAdminDirect()" title="เปิดหลังบ้านออนไลน์" class="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full text-xs text-amber-300 border border-amber-500/30 shadow-inner cursor-pointer hover:bg-black/60 transition-all select-none">
+                    <span><i class="fa-solid fa-warehouse mr-1"></i> ค่าหิ้ว: ทั่วไป +60฿ | เสื้อ +80฿ (คลิกเปิดหลังบ้าน)</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- Main Container Layout -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
         
-        <!-- Product Section -->
-        <section class="lg:col-span-7 space-y-6">
-            <div class="bg-white/90 backdrop-blur-md rounded-3xl p-5 md:p-7 shadow-lg border border-amber-900/10">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-5 pb-3 border-b border-brand-100 gap-3">
+        <!-- Product Catalog Section (Left 7 cols) -->
+        <section class="lg:col-span-7 space-y-4">
+            <div class="bg-white/95 backdrop-blur-md rounded-3xl p-4 sm:p-6 shadow-xl border border-amber-900/10">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 pb-3 border-b border-brand-100 gap-2">
                     <div>
-                        <h2 class="text-xl font-bold text-brand-900 flex items-center gap-2">
+                        <h2 class="text-lg sm:text-xl font-bold text-brand-900 flex items-center gap-2">
                             <i class="fa-solid fa-bag-shopping text-brand-500"></i> เลือกรายการสินค้า
                         </h2>
-                        <p class="text-xs text-gray-500 mt-0.5">จำกัดการสั่งซื้อรวมสูงสุดไม่เกิน 5 ชิ้นต่อ 1 ออเดอร์</p>
+                        <p class="text-[11px] text-gray-500">จำกัดการสั่งซื้อรวมสูงสุดไม่เกิน 5 ชิ้นต่อ 1 ออเดอร์</p>
                     </div>
-                    <div id="counter-badge" class="bg-brand-100 text-brand-900 text-xs font-bold px-4 py-2 rounded-xl shadow-sm border border-brand-200">
+                    <div id="counter-badge" class="bg-brand-50 text-brand-900 text-xs font-bold px-3 py-1.5 rounded-xl shadow-sm border border-brand-200">
                         เลือกแล้ว <span id="selected-count" class="font-extrabold text-brand-650 text-sm">0</span> / 5 ชิ้น
                     </div>
                 </div>
 
-                <div class="flex gap-2 overflow-x-auto pb-3 mb-5 custom-scrollbar text-xs">
-                    <button type="button" onclick="filterCategory('all')" class="cat-btn active px-4 py-2 rounded-xl bg-brand-500 text-white font-semibold whitespace-nowrap transition-all shadow-md">ทั้งหมด</button>
-                    <button type="button" onclick="filterCategory('card')" class="cat-btn px-4 py-2 rounded-xl bg-brand-50 text-brand-800 hover:bg-brand-100 font-semibold whitespace-nowrap transition-all">โฟโตการ์ด & การ์ดสุ่ม</button>
-                    <button type="button" onclick="filterCategory('hanger')" class="cat-btn px-4 py-2 rounded-xl bg-brand-50 text-brand-800 hover:bg-brand-100 font-semibold whitespace-nowrap transition-all">พวงกุญแจกระเป๋า</button>
-                    <button type="button" onclick="filterCategory('charm')" class="cat-btn px-4 py-2 rounded-xl bg-brand-50 text-brand-800 hover:bg-brand-100 font-semibold whitespace-nowrap transition-all">สายคล้องมือถือ</button>
-                    <button type="button" onclick="filterCategory('apparel')" class="cat-btn px-4 py-2 rounded-xl bg-brand-50 text-brand-800 hover:bg-brand-100 font-semibold whitespace-nowrap transition-all">เครื่องแต่งกาย (เสื้อ)</button>
+                <!-- Category Filters -->
+                <div class="flex gap-2 overflow-x-auto pb-2 mb-4 custom-scrollbar text-xs">
+                    <button type="button" onclick="filterCategory('all')" class="cat-btn active px-3.5 py-2 rounded-xl bg-brand-500 text-white font-semibold whitespace-nowrap transition-all shadow-md">ทั้งหมด</button>
+                    <button type="button" onclick="filterCategory('card')" class="cat-btn px-3.5 py-2 rounded-xl bg-brand-50 text-brand-800 hover:bg-brand-100 font-semibold whitespace-nowrap transition-all">โฟโตการ์ด</button>
+                    <button type="button" onclick="filterCategory('hanger')" class="cat-btn px-3.5 py-2 rounded-xl bg-brand-50 text-brand-800 hover:bg-brand-100 font-semibold whitespace-nowrap transition-all">พวงกุญแจ</button>
+                    <button type="button" onclick="filterCategory('charm')" class="cat-btn px-3.5 py-2 rounded-xl bg-brand-50 text-brand-800 hover:bg-brand-100 font-semibold whitespace-nowrap transition-all">สายคล้อง</button>
+                    <button type="button" onclick="filterCategory('apparel')" class="cat-btn px-3.5 py-2 rounded-xl bg-brand-50 text-brand-800 hover:bg-brand-100 font-semibold whitespace-nowrap transition-all">เสื้อผ้า</button>
                 </div>
 
-                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[700px] overflow-y-auto pr-2 custom-scrollbar"></div>
+                <!-- Product Grid Container (Optimized for mobile view) -->
+                <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-[650px] overflow-y-auto pr-1 custom-scrollbar"></div>
             </div>
         </section>
 
-        <!-- Cart and Checkout Section -->
-        <section class="lg:col-span-5 space-y-6">
-            <div class="bg-white rounded-3xl p-6 md:p-7 shadow-xl border border-amber-900/10 sticky top-4">
-                <div class="flex items-center justify-between mb-4 pb-3 border-b border-brand-100">
-                    <h2 class="text-xl font-bold text-brand-900 flex items-center gap-2">
+        <!-- Cart and Checkout Section (Right 5 cols) -->
+        <section class="lg:col-span-5 space-y-4">
+            <div class="bg-white rounded-3xl p-4 sm:p-6 shadow-xl border border-amber-900/10 sticky top-4">
+                <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-brand-100">
+                    <h2 class="text-lg sm:text-xl font-bold text-brand-900 flex items-center gap-2">
                         <i class="fa-solid fa-receipt text-brand-500"></i> ตะกร้าสินค้า & ชำระเงิน
                     </h2>
                 </div>
 
-                <div id="cart-items" class="space-y-3 mb-5 max-h-52 overflow-y-auto pr-1 custom-scrollbar text-sm">
+                <!-- Cart Items List -->
+                <div id="cart-items" class="space-y-2.5 mb-4 max-h-44 overflow-y-auto pr-1 custom-scrollbar text-xs">
                     <p class="text-gray-400 text-center py-6 italic bg-gray-50 rounded-2xl border border-dashed border-gray-200">ยังไม่มีสินค้าในตะกร้า</p>
                 </div>
 
-                <div class="mb-4 bg-brand-50 p-3.5 rounded-2xl border border-brand-200">
-                    <label class="block font-bold text-brand-900 mb-2 text-xs flex items-center gap-1.5">
+                <!-- Shipping Option Toggle -->
+                <div class="mb-3 bg-brand-50 p-3 rounded-2xl border border-brand-200">
+                    <label class="block font-bold text-brand-900 mb-1.5 text-xs flex items-center gap-1.5">
                         <i class="fa-solid fa-truck text-brand-500"></i> เลือกรูปแบบการรับสินค้า <span class="text-red-500">*</span>
                     </label>
                     <div class="grid grid-cols-2 gap-2 text-xs">
-                        <label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-brand-200 cursor-pointer shadow-sm hover:border-brand-500 transition-all">
+                        <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-brand-200 cursor-pointer shadow-sm hover:border-brand-500 transition-all">
                             <input type="radio" name="shipping-option" value="ship" checked onchange="toggleShipping(true)" class="text-brand-500 focus:ring-brand-500">
                             <div>
-                                <span class="font-bold block text-brand-900">จัดส่งพัสดุ</span>
+                                <span class="font-bold block text-brand-900 text-[11px]">จัดส่งพัสดุ</span>
                                 <span class="text-[10px] text-gray-500">+45 บาท</span>
                             </div>
                         </label>
-                        <label class="flex items-center gap-2 p-2.5 bg-white rounded-xl border border-brand-200 cursor-pointer shadow-sm hover:border-brand-500 transition-all">
+                        <label class="flex items-center gap-2 p-2 bg-white rounded-xl border border-brand-200 cursor-pointer shadow-sm hover:border-brand-500 transition-all">
                             <input type="radio" name="shipping-option" value="pickup" onchange="toggleShipping(false)" class="text-brand-500 focus:ring-brand-500">
                             <div>
-                                <span class="font-bold block text-brand-900">ไม่ส่ง (รับที่บูธ)</span>
+                                <span class="font-bold block text-brand-900 text-[11px]">รับที่บูธ</span>
                                 <span class="text-[10px] text-gray-500">0 บาท</span>
                             </div>
                         </label>
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-brand-50 to-amber-50/50 rounded-2xl p-4 text-sm space-y-2 mb-6 border border-brand-200 shadow-sm">
-                    <div class="flex justify-between text-gray-700">
-                        <span>ราคาสินค้ารวม:</span>
-                        <span id="summary-goods-price" class="font-semibold">0 THB</span>
-                    </div>
-                    <div class="flex justify-between text-gray-700">
-                        <span>ค่าหิ้วรวม:</span>
-                        <span id="summary-handling-fee" class="font-semibold">0 THB</span>
-                    </div>
-                    <div class="flex justify-between text-gray-700">
-                        <span id="shipping-label-text">ค่าจัดส่งพัสดุ:</span>
-                        <span id="summary-shipping-fee" class="font-semibold">45 THB</span>
-                    </div>
-                    <div class="border-t border-brand-200 pt-2 flex justify-between items-center text-base font-bold text-brand-900">
-                        <span>ยอดชำระสุทธิ:</span>
-                        <span id="summary-grand-total" class="text-brand-500 text-xl font-extrabold">45 THB</span>
+                <!-- Financial Breakdown Box -->
+                <div class="bg-gradient-to-br from-brand-50 to-amber-50/50 rounded-2xl p-3.5 text-xs space-y-1.5 mb-4 border border-brand-200 shadow-sm">
+                    <div class="flex justify-between text-gray-700"><span>ราคาสินค้ารวม:</span><span id="summary-goods-price" class="font-semibold">0 THB</span></div>
+                    <div class="flex justify-between text-gray-700"><span>ค่าหิ้วรวม:</span><span id="summary-handling-fee" class="font-semibold">0 THB</span></div>
+                    <div class="flex justify-between text-gray-700"><span id="shipping-label-text">ค่าจัดส่งพัสดุ:</span><span id="summary-shipping-fee" class="font-semibold">45 THB</span></div>
+                    <div class="border-t border-brand-200 pt-1.5 flex justify-between items-center text-sm font-bold text-brand-900">
+                        <span>ยอดชำระสุทธิ:</span><span id="summary-grand-total" class="text-brand-500 text-lg font-extrabold">45 THB</span>
                     </div>
                 </div>
 
-                <form id="order-form" onsubmit="event.preventDefault(); openBillModal();" class="space-y-4 text-sm">
+                <!-- Customer Form -->
+                <form id="order-form" onsubmit="event.preventDefault(); openBillModal();" class="space-y-3 text-xs">
                     <div>
-                        <label class="block font-semibold text-gray-700 mb-1.5">ชื่อ-นามสกุล <span class="text-red-500">*</span></label>
-                        <input type="text" id="cust-name" required placeholder="กรอกชื่อและนามสกุลผู้รับ" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm shadow-sm">
+                        <label class="block font-semibold text-gray-700 mb-1">ชื่อ-นามสกุล <span class="text-red-500">*</span></label>
+                        <input type="text" id="cust-name" required placeholder="กรอกชื่อและนามสกุลผู้รับ" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-xs shadow-sm">
                     </div>
-                    <div class="grid grid-cols-2 gap-3">
+                    <div class="grid grid-cols-2 gap-2">
                         <div>
-                            <label class="block font-semibold text-gray-700 mb-1.5">Twitter / IG <span class="text-gray-400 font-normal text-xs">(ไม่บังคับ)</span></label>
-                            <input type="text" id="cust-social" placeholder="@username" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm shadow-sm">
+                            <label class="block font-semibold text-gray-700 mb-1">X / IG <span class="text-gray-400 font-normal text-[10px]">(ไม่บังคับ)</span></label>
+                            <input type="text" id="cust-social" placeholder="@username" class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-xs shadow-sm">
                         </div>
                         <div>
-                            <label class="block font-semibold text-gray-700 mb-1.5">เบอร์โทรศัพท์ <span class="text-red-500">*</span></label>
-                            <input type="tel" id="cust-phone" required placeholder="08xxxxxxxx" maxlength="10" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm shadow-sm">
+                            <label class="block font-semibold text-gray-700 mb-1">เบอร์โทรศัพท์ <span class="text-red-500">*</span></label>
+                            <input type="tel" id="cust-phone" required placeholder="08xxxxxxxx" maxlength="10" class="w-full px-3 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-xs shadow-sm">
                         </div>
                     </div>
                     <div id="address-field-container">
-                        <label class="block font-semibold text-gray-700 mb-1.5">ที่อยู่จัดส่งสินค้า <span class="text-red-500">*</span></label>
-                        <textarea id="cust-address" required rows="2" placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์" class="w-full px-4 py-2.5 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-sm shadow-sm"></textarea>
+                        <label class="block font-semibold text-gray-700 mb-1">ที่อยู่จัดส่งสินค้า <span class="text-red-500">*</span></label>
+                        <textarea id="cust-address" required rows="2" placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์" class="w-full px-3.5 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-500 text-xs shadow-sm"></textarea>
                     </div>
 
-                    <div class="pt-3 border-t border-brand-100">
-                        <label class="block font-bold text-brand-900 mb-2 flex items-center gap-1.5">
-                            <i class="fa-solid fa-qrcode text-brand-500"></i> ช่องทางการชำระเงิน (สแกน QR โอนเงิน)
+                    <!-- Payment Section -->
+                    <div class="pt-2 border-t border-brand-100">
+                        <label class="block font-bold text-brand-900 mb-2 flex items-center gap-1.5 text-xs">
+                            <i class="fa-solid fa-qrcode text-brand-500"></i> ชำระเงินผ่าน QR Code กสิกรไทย
                         </label>
-                        <div class="bg-gradient-to-br from-emerald-50 via-blue-50 to-amber-50 p-4 rounded-2xl border border-emerald-200 text-xs text-gray-700 mb-3 shadow-inner flex flex-col sm:flex-row items-center gap-4">
-                            <img src="image_3.png" alt="QR Code Payment" class="w-32 h-32 object-cover rounded-xl border-2 border-white shadow-md flex-shrink-0 bg-white" onerror="this.src='https://placehold.co/150x150/ffffff/000000?text=QR+Code'">
-                            <div class="space-y-1.5 text-center sm:text-left w-full">
-                                <div class="inline-flex items-center gap-1.5 bg-[#138F2D] text-white font-bold px-3 py-1.5 rounded-lg text-xs shadow-sm">
-                                    <i class="fa-solid fa-building-columns"></i> ธนาคารกสิกรไทย (KBANK)
+                        <div class="bg-gradient-to-br from-emerald-50 via-blue-50 to-amber-50 p-3 rounded-2xl border border-emerald-200 text-xs text-gray-700 mb-3 shadow-inner flex flex-col sm:flex-row items-center gap-3">
+                            <img src="image_3.png" alt="QR Code" class="w-24 h-24 object-cover rounded-xl border-2 border-white shadow flex-shrink-0 bg-white" onerror="this.src='https://placehold.co/120x120/ffffff/000000?text=QR+Code'">
+                            <div class="space-y-1 text-center sm:text-left w-full">
+                                <div class="inline-flex items-center gap-1 bg-[#138F2D] text-white font-bold px-2.5 py-1 rounded-md text-[10px]">
+                                    <i class="fa-solid fa-building-columns"></i> KBANK
                                 </div>
-                                <div class="flex items-center justify-center sm:justify-start gap-2 pt-1">
-                                    <p id="acc-number" class="text-brand-650 font-mono text-base font-bold tracking-wider">0991512365</p>
-                                    <button type="button" onclick="copyAccountNumber()" class="bg-brand-500 hover:bg-brand-650 text-white text-[10px] px-2.5 py-1 rounded-lg font-bold shadow transition-all flex items-center gap-1 cursor-pointer">
-                                        <i class="fa-regular fa-copy"></i> คัดลอก
-                                    </button>
+                                <div class="flex items-center justify-center sm:justify-start gap-1.5">
+                                    <p id="acc-number" class="text-brand-650 font-mono text-sm font-bold">0991512365</p>
+                                    <button type="button" onclick="copyAccountNumber()" class="bg-brand-500 hover:bg-brand-650 text-white text-[10px] px-2 py-0.5 rounded font-bold shadow cursor-pointer">คัดลอก</button>
                                 </div>
-                                <p class="font-semibold text-gray-800">ชื่อบัญชี: รัตนมณี แสงเมล์</p>
-                                <p class="text-[11px] text-gray-500 leading-relaxed">โอนเงินแล้วแนบหลักฐานการโอนด้านล่างได้เลยค่ะ ขอบคุณที่อุดหนุนนะคะ</p>
+                                <p class="font-semibold text-gray-800 text-[11px]">ชื่อบัญชี: รัตนมณี แสงเมล์</p>
                             </div>
                         </div>
 
-                        <label class="block font-semibold text-gray-700 mb-1.5 text-xs">อัปโหลดสลิปโอนเงิน <span class="text-red-500">*</span></label>
-                        <input type="file" id="slip-file" accept="image/*" required onchange="previewSlip(event)" class="w-full text-xs text-gray-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-brand-500 file:text-white hover:file:bg-brand-650 cursor-pointer shadow-sm">
-                        <div id="slip-preview-container" class="mt-3 hidden">
-                            <img id="slip-img" src="" alt="Slip Preview" class="h-24 rounded-xl border border-gray-300 object-cover shadow-sm">
+                        <label class="block font-semibold text-gray-700 mb-1 text-xs">อัปโหลดสลิปโอนเงิน <span class="text-red-500">*</span></label>
+                        <input type="file" id="slip-file" accept="image/*" required onchange="previewSlip(event)" class="w-full text-[11px] text-gray-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-[11px] file:font-bold file:bg-brand-500 file:text-white hover:file:bg-brand-650 cursor-pointer shadow-sm">
+                        <div id="slip-preview-container" class="mt-2 hidden">
+                            <img id="slip-img" src="" alt="Slip" class="h-20 rounded-xl border border-gray-300 object-cover shadow-sm">
                         </div>
                     </div>
 
-                    <button type="submit" id="submit-btn" class="w-full mt-5 bg-gradient-to-r from-brand-500 to-brand-650 hover:from-brand-650 hover:to-brand-800 text-white font-bold py-3.5 px-4 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer text-base">
-                        <i class="fa-solid fa-file-lines text-lg"></i> บันทึกคำสั่งซื้อเข้าระบบ
+                    <button type="submit" id="submit-btn" class="w-full mt-4 bg-gradient-to-r from-brand-500 to-brand-650 hover:from-brand-650 hover:to-brand-800 text-white font-bold py-3 px-4 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer text-sm">
+                        <i class="fa-solid fa-file-lines text-base"></i> ตรวจสอบบิล & บันทึกออเดอร์
                     </button>
                 </form>
             </div>
         </section>
     </main>
 
-    <!-- Hidden Invisible Form for Google Sheets -->
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-    <form id="sheets-form" action="https://script.google.com/macros/s/AKfycbxdo7seGBIRZbNowrs49FNFhQygHf8ZBwI4wlIaeFe3vflWgp19l48wt8f1jbiOx31rFA/exec" method="POST" target="hidden_iframe" style="display:none;">
-        <input type="hidden" name="orderId" id="f-orderId">
-        <input type="hidden" name="name" id="f-name">
-        <input type="hidden" name="social" id="f-social">
-        <input type="hidden" name="phone" id="f-phone">
-        <input type="hidden" name="shipping" id="f-shipping">
-        <input type="hidden" name="address" id="f-address">
-        <input type="hidden" name="items" id="f-items">
-        <input type="hidden" name="total" id="f-total">
-        <input type="hidden" name="slip" id="f-slip">
-    </form>
-
     <!-- Bill Modal -->
-    <div id="bill-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-2xl border border-brand-200">
-            <div class="flex justify-between items-center pb-3 border-b border-brand-100 mb-4">
-                <h3 class="font-bold text-lg text-brand-900 flex items-center gap-2">
-                    <i class="fa-solid fa-file-invoice-dollar text-brand-500"></i> บันทึกคำสั่งซื้อสำเร็จ
+    <div id="bill-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3">
+        <div class="bg-white rounded-3xl max-w-md w-full max-h-[90vh] overflow-y-auto p-5 sm:p-7 shadow-2xl border border-brand-200">
+            <div class="flex justify-between items-center pb-2.5 border-b border-brand-100 mb-3">
+                <h3 class="font-bold text-base text-brand-900 flex items-center gap-2">
+                    <i class="fa-solid fa-file-invoice-dollar text-brand-500"></i> ยืนยันคำสั่งซื้อ (Order Review)
                 </h3>
-                <button type="button" onclick="closeBillModal()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold px-2 cursor-pointer">&times;</button>
+                <button type="button" onclick="closeBillModal()" class="text-gray-400 hover:text-gray-600 text-xl font-bold px-2 cursor-pointer">&times;</button>
             </div>
 
-            <div id="bill-printable-area" class="bg-white p-5 rounded-2xl border border-brand-200 space-y-3 mb-4 shadow-sm text-xs font-sans">
-                <div class="text-center pb-3 border-b border-dashed border-gray-300">
-                    <h4 class="font-extrabold text-brand-900 text-sm">DOMUNDI POP-UP BOOTH 2026</h4>
-                    <p class="text-[10px] text-gray-500">ใบเสร็จรับเงิน / บันทึกออเดอร์สำเร็จ</p>
-                    <p id="modal-order-id" class="font-mono font-bold text-brand-650 mt-1"></p>
+            <div id="bill-printable-area" class="bg-white p-4 rounded-2xl border border-brand-200 space-y-2.5 mb-4 shadow-sm text-xs font-sans">
+                <div class="text-center pb-2.5 border-b border-dashed border-gray-300">
+                    <h4 class="font-extrabold text-brand-900 text-xs">DOMUNDI POP-UP BOOTH 2026</h4>
+                    <p id="modal-order-id" class="font-mono font-bold text-brand-650 mt-0.5 text-xs"></p>
                 </div>
-                <div id="bill-content-preview" class="space-y-1.5 text-gray-700"></div>
-                <div class="pt-2 border-t border-dashed border-gray-300 text-[11px] text-center text-gray-500">
+                <div id="bill-content-preview" class="space-y-1 text-gray-700"></div>
+                <div class="pt-2 border-t border-dashed border-gray-300 text-[10px] text-center text-gray-500">
                     ขอบคุณที่สนับสนุนโดมุนดีค่ะ ❤️
                 </div>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-2.5">
-                <button type="button" onclick="downloadBillImage()" class="flex-1 bg-stone-800 hover:bg-stone-900 text-white font-bold py-3 px-4 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer shadow">
-                    <i class="fa-solid fa-download"></i> บันทึกภาพบิลเก็บไว้
+            <div class="flex flex-col gap-2">
+                <button type="button" id="final-confirm-btn" onclick="confirmOrderAndSave()" class="w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-bold py-3 px-4 rounded-xl shadow-lg transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-check-circle text-sm"></i> ยันทึกออเดอร์เข้าระบบหลังบ้านทันที
                 </button>
-                <button type="button" onclick="closeBillModal()" class="flex-1 bg-brand-500 hover:bg-brand-650 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer">
-                    เสร็จสิ้น
+                <button type="button" onclick="downloadBillImage()" class="w-full bg-stone-800 hover:bg-stone-900 text-white font-semibold py-2.5 px-4 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer shadow">
+                    <i class="fa-solid fa-download"></i> บันทึกภาพบิลเก็บไว้
                 </button>
             </div>
         </div>
     </div>
 
     <!-- Admin Backoffice Modal -->
-    <div id="admin-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-2xl border border-amber-300">
+    <div id="admin-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3">
+        <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-5 sm:p-7 shadow-2xl border border-amber-300">
             <div class="flex justify-between items-center pb-3 border-b border-brand-100 mb-4">
-                <h3 class="font-bold text-lg text-brand-900 flex items-center gap-2">
+                <h3 class="font-bold text-base sm:text-lg text-brand-900 flex items-center gap-2">
                     <i class="fa-solid fa-warehouse text-amber-600"></i> หลังบ้านออนไลน์: จัดการสต็อก & ดูบิลออเดอร์
                 </h3>
-                <button type="button" onclick="closeAdminModal()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold px-2 cursor-pointer">&times;</button>
+                <button type="button" onclick="closeAdminModal()" class="text-gray-400 hover:text-gray-600 text-xl font-bold px-2 cursor-pointer">&times;</button>
             </div>
             
-            <div class="flex gap-2 mb-5 border-b border-gray-200 pb-3 flex-wrap">
-                <button type="button" onclick="switchAdminTab('stock')" id="tab-btn-stock" class="px-4 py-2 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer">จัดการสต็อกสินค้า</button>
-                <button type="button" onclick="switchAdminTab('orders')" id="tab-btn-orders" class="px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer">ดูบิลออเดอร์ออนไลน์ (Google Sheets)</button>
+            <div class="flex gap-2 mb-4 border-b border-gray-200 pb-2.5 flex-wrap">
+                <button type="button" onclick="switchAdminTab('stock')" id="tab-btn-stock" class="px-3.5 py-1.5 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer">จัดการสต็อกสินค้า</button>
+                <button type="button" onclick="switchAdminTab('orders')" id="tab-btn-orders" class="px-3.5 py-1.5 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer">ดูบิลออเดอร์ออนไลน์ (Google Sheets)</button>
             </div>
 
             <!-- Tab 1: Stock -->
-            <div id="admin-tab-stock" class="space-y-4">
-                <p class="text-xs text-gray-500 mb-2">กำหนดจำนวนสินค้าคงเหลือ (Stock)</p>
-                <div id="admin-inventory-list" class="space-y-3 max-h-[380px] overflow-y-auto pr-2 custom-scrollbar mb-4"></div>
+            <div id="admin-tab-stock" class="space-y-3">
+                <p class="text-xs text-gray-500 mb-2">กำหนดจำนวนสินค้าคงเหลือ (Stock) ของแต่ละรายการ</p>
+                <div id="admin-inventory-list" class="space-y-2.5 max-h-[350px] overflow-y-auto pr-1 custom-scrollbar"></div>
             </div>
 
             <!-- Tab 2: Online Orders Viewer -->
-            <div id="admin-tab-orders" class="space-y-4 hidden">
+            <div id="admin-tab-orders" class="space-y-3 hidden">
                 <div class="flex justify-between items-center">
                     <p class="text-xs text-gray-500">ดึงข้อมูลบิลออเดอร์ล่าสุดจาก Google Sheets (ทุกเครื่องที่สั่งจะมารวมตรงนี้)</p>
                     <button type="button" onclick="fetchOnlineOrders()" class="bg-brand-500 hover:bg-brand-650 text-white font-bold px-3 py-1.5 rounded-xl text-xs shadow transition-all flex items-center gap-1 cursor-pointer">
                         <i class="fa-solid fa-rotate"></i> โหลดข้อมูลล่าสุด
                     </button>
                 </div>
-                <div id="online-orders-list" class="space-y-3 max-h-[380px] overflow-y-auto pr-2 custom-scrollbar text-xs">
-                    <p class="text-gray-400 text-center py-8 italic">กดปุ่ม "โหลดข้อมูลล่าสุด" เพื่อดึงบิลทั้งหมด</p>
+                <div id="online-orders-list" class="space-y-2.5 max-h-[350px] overflow-y-auto pr-1 custom-scrollbar text-xs">
+                    <p class="text-gray-400 text-center py-6 italic">กดปุ่ม "โหลดข้อมูลล่าสุด" เพื่อดึงบิลทั้งหมด</p>
                 </div>
             </div>
 
-            <div class="flex justify-end pt-4 border-t border-brand-100 mt-4">
-                <button type="button" onclick="closeAdminModal()" class="bg-brand-500 hover:bg-brand-650 text-white font-bold px-6 py-2.5 rounded-xl text-xs shadow-md cursor-pointer">
+            <div class="flex justify-end pt-3 border-t border-brand-100 mt-4">
+                <button type="button" onclick="closeAdminModal()" class="bg-brand-500 hover:bg-brand-650 text-white font-bold px-5 py-2 rounded-xl text-xs shadow transition-all cursor-pointer">
                     ปิดหน้าต่าง
                 </button>
             </div>
@@ -276,14 +261,14 @@
     </div>
 
     <!-- Slip Inspector Modal -->
-    <div id="slip-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl text-center relative">
-            <button type="button" onclick="closeSlipModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold cursor-pointer">&times;</button>
-            <h3 class="font-bold text-base text-brand-900 mb-3"><i class="fa-solid fa-receipt text-brand-500"></i> หลักฐานสลิปโอนเงิน</h3>
-            <div class="bg-gray-100 p-2 rounded-2xl max-h-[70vh] overflow-y-auto flex items-center justify-center">
-                <img id="admin-inspect-slip-img" src="" alt="Customer Slip" class="max-w-full rounded-xl object-contain shadow">
+    <div id="slip-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3">
+        <div class="bg-white rounded-3xl max-w-md w-full p-5 shadow-2xl text-center relative">
+            <button type="button" onclick="closeSlipModal()" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800 text-xl font-bold cursor-pointer">&times;</button>
+            <h3 class="font-bold text-sm text-brand-900 mb-2.5"><i class="fa-solid fa-receipt text-brand-500"></i> หลักฐานสลิปโอนเงิน</h3>
+            <div class="bg-gray-100 p-2 rounded-2xl max-h-[65vh] overflow-y-auto flex items-center justify-center">
+                <img id="admin-inspect-slip-img" src="" alt="Slip" class="max-w-full rounded-xl object-contain shadow">
             </div>
-            <button type="button" onclick="closeSlipModal()" class="mt-4 bg-brand-500 text-white font-bold px-6 py-2 rounded-xl text-xs cursor-pointer">ปิดหน้าต่าง</button>
+            <button type="button" onclick="closeSlipModal()" class="mt-3 bg-brand-500 text-white font-bold px-5 py-1.5 rounded-xl text-xs cursor-pointer">ปิดหน้าต่าง</button>
         </div>
     </div>
 
@@ -291,45 +276,45 @@
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxdo7seGBIRZbNowrs49FNFhQygHf8ZBwI4wlIaeFe3vflWgp19l48wt8f1jbiOx31rFA/exec";
 
         let products = [
-            { id: 'p1', name: 'Random Photocards: Duang With You - OST. Edition', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
-            { id: 'p2', name: 'Random Photocards: Take Our Time (9 cards/set)', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'p3', name: 'Random Photocards: It Had To Be You (9 cards/set)', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'p4', name: 'Random Photocards: Next Status (9 cards/set)', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'p5', name: 'Random Photocards: 101% Love (9 cards/set)', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'p6', name: 'Random Photocards: Skinship Collection', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'p7', name: 'Random Photocards: Khemira Tour 4 Regions', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'p1', name: 'Random Photocards: Duang With You', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
+            { id: 'p2', name: 'Random Photocards: Take Our Time', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'p3', name: 'Random Photocards: It Had To Be You', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'p4', name: 'Random Photocards: Next Status', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'p5', name: 'Random Photocards: 101% Love', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'p6', name: 'Random Photocards: Skinship', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'p7', name: 'Random Photocards: Khemira Tour', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
             { id: 'p8', name: 'Random Photocards: My No.1 Duo', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
-            { id: 'p9', name: 'Random Photocards: DMD Partners (9 cards/set)', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
-            { id: 'p10', name: 'Random Selfie Photocards: Songkran 2026', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
+            { id: 'p9', name: 'Random Photocards: DMD Partners', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
+            { id: 'p10', name: 'Random Selfie: Songkran 2026', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
             { id: 'p11', name: 'Random Photocards - DEXX', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
             { id: 'p12', name: 'Random Photocards - Final EP.', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
-            { id: 'p13', name: 'Random Selfie Photocards - Ver.A', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
-            { id: 'p14', name: 'Random Selfie Photocards - Ver.B', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
-            { id: 'p15', name: 'Random Film Photocards (5 cards/set)', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
+            { id: 'p13', name: 'Random Selfie - Ver.A', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
+            { id: 'p14', name: 'Random Selfie - Ver.B', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
+            { id: 'p15', name: 'Random Film Photocards', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
 
-            { id: 'h1', name: 'Bag Hanger - A: Nongzon', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'h2', name: 'Bag Hanger - B: Chae', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'h3', name: 'Bag Hanger - C: Rainy', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'h4', name: 'Bag Hanger - D: Heartdy', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'h5', name: 'Bag Hanger - E: Aunor', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'h6', name: 'Bag Hanger - F: Jookkoo', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'h7', name: 'Bag Hanger - G: Mritoky', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'h8', name: 'Bag Hanger - H: Whipraew', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'h9', name: 'Bag Hanger - I: Tamik', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'h10', name: 'Bag Hanger - J: Boksar', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'h11', name: 'Bag Hanger - K: Jessy', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'h1', name: 'Bag Hanger - Nongzon', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'h2', name: 'Bag Hanger - Chae', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'h3', name: 'Bag Hanger - Rainy', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'h4', name: 'Bag Hanger - Heartdy', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'h5', name: 'Bag Hanger - Aunor', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'h6', name: 'Bag Hanger - Jookkoo', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'h7', name: 'Bag Hanger - Mritoky', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'h8', name: 'Bag Hanger - Whipraew', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'h9', name: 'Bag Hanger - Tamik', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'h10', name: 'Bag Hanger - Boksar', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'h11', name: 'Bag Hanger - Jessy', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
 
-            { id: 'c1', name: 'Phone Charm - A: Nongzon', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'c2', name: 'Phone Charm - B: Chae', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'c3', name: 'Phone Charm - C: Rainy', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'c4', name: 'Phone Charm - D: Heartdy', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'c5', name: 'Phone Charm - E: Aunor', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'c6', name: 'Phone Charm - F: Jookkoo', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'c7', name: 'Phone Charm - G: Mritoky', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'c8', name: 'Phone Charm - H: Whipraew', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'c9', name: 'Phone Charm - I: Tamik', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'c10', name: 'Phone Charm - J: Boksar', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
-            { id: 'c11', name: 'Phone Charm - K: Jessy', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'c1', name: 'Phone Charm - Nongzon', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'c2', name: 'Phone Charm - Chae', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'c3', name: 'Phone Charm - Rainy', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'c4', name: 'Phone Charm - Heartdy', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'c5', name: 'Phone Charm - Aunor', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'c6', name: 'Phone Charm - Jookkoo', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'c7', name: 'Phone Charm - Mritoky', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'c8', name: 'Phone Charm - Whipraew', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'c9', name: 'Phone Charm - Tamik', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'c10', name: 'Phone Charm - Boksar', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
+            { id: 'c11', name: 'Phone Charm - Jessy', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
 
             { id: 'a1', name: 'DEXX Shadow Fade Sweater', category: 'apparel', price: 1090, handling: 80, stock: 10, image: 'image.png' },
             { id: 'a2', name: 'DEXX Distressed T-Shirt', category: 'apparel', price: 790, handling: 80, stock: 10, image: 'image_2.png' }
@@ -347,14 +332,13 @@
             loadSavedStock();
             renderProducts(currentFilter);
             renderCartSummary();
-            document.getElementById('sheets-form').action = SCRIPT_URL;
         });
 
         function loadSavedStock() {
             try {
-                const savedProducts = localStorage.getItem('domundi_products');
-                if (savedProducts) {
-                    const parsed = JSON.parse(savedProducts);
+                const saved = localStorage.getItem('domundi_products');
+                if (saved) {
+                    const parsed = JSON.parse(saved);
                     products.forEach(p => {
                         const found = parsed.find(sp => sp.id === p.id);
                         if (found) p.stock = found.stock;
@@ -386,13 +370,13 @@
             if (tab === 'stock') {
                 stockTab.classList.remove('hidden');
                 ordersTab.classList.add('hidden');
-                btnStock.className = "px-4 py-2 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer";
-                btnOrders.className = "px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer";
+                btnStock.className = "px-3.5 py-1.5 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer";
+                btnOrders.className = "px-3.5 py-1.5 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer";
             } else {
                 stockTab.classList.add('hidden');
                 ordersTab.classList.remove('hidden');
-                btnOrders.className = "px-4 py-2 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer";
-                btnStock.className = "px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer";
+                btnOrders.className = "px-3.5 py-1.5 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer";
+                btnStock.className = "px-3.5 py-1.5 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer";
                 fetchOnlineOrders();
             }
         }
@@ -418,25 +402,27 @@
                 const qty = cart[p.id] || 0;
                 const isOutOfStock = p.stock <= 0;
                 const card = document.createElement('div');
-                card.className = `bg-white p-3.5 rounded-2xl border ${isOutOfStock ? 'border-red-200 bg-red-50/30 opacity-75' : 'border-brand-100'} hover:shadow-md transition-all flex flex-col justify-between`;
+                card.className = `bg-white p-2.5 sm:p-3 rounded-2xl border ${isOutOfStock ? 'border-red-200 bg-red-50/30 opacity-75' : 'border-brand-100'} hover:shadow-md transition-all flex flex-col justify-between text-xs`;
                 card.innerHTML = `
                     <div>
-                        <div class="relative mb-3">
-                            <img src="${p.image}" alt="${p.name}" class="w-full h-40 object-cover rounded-xl bg-brand-50 shadow-sm" onerror="this.src='https://placehold.co/300x400/f3e8dc/593210?text=DOMUNDI+MENU'">
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-lg text-[10px] font-bold ${p.stock > 0 ? 'bg-green-600 text-white' : 'bg-red-600 text-white'} shadow">${p.stock > 0 ? 'เหลือ: ' + p.stock : 'สินค้าหมด'}</span>
+                        <div class="relative mb-2">
+                            <img src="${p.image}" alt="${p.name}" class="w-full h-28 sm:h-36 object-cover rounded-xl bg-brand-50 shadow-sm" onerror="this.src='https://placehold.co/300x400/f3e8dc/593210?text=DOMUNDI'">
+                            <span class="absolute top-1.5 right-1.5 px-2 py-0.5 rounded-md text-[9px] font-bold ${p.stock > 0 ? 'bg-green-600 text-white' : 'bg-red-600 text-white'} shadow">
+                                ${p.stock > 0 ? 'เหลือ: ' + p.stock : 'หมด'}
+                            </span>
                         </div>
-                        <h4 class="font-bold text-xs text-brand-900 line-clamp-2 mb-1.5">${p.name}</h4>
-                        <div class="flex items-center justify-between text-xs mb-3">
-                            <span class="font-bold text-brand-650 text-sm">${p.price} THB</span>
-                            <span class="text-[10px] bg-brand-100 text-brand-800 px-2 py-0.5 rounded-md font-semibold">ค่าหิ้ว +${p.handling}</span>
+                        <h4 class="font-bold text-[11px] sm:text-xs text-brand-900 line-clamp-2 mb-1">${p.name}</h4>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-brand-650 text-xs sm:text-sm">${p.price}฿</span>
+                            <span class="text-[9px] bg-brand-100 text-brand-800 px-1.5 py-0.5 rounded font-semibold">+หิ้ว ${p.handling}฿</span>
                         </div>
                     </div>
-                    <div class="flex items-center justify-between bg-brand-50/70 p-2 rounded-xl border border-brand-100">
-                        <span class="text-[11px] text-gray-600 font-medium">จำนวน:</span>
-                        <div class="flex items-center gap-2">
-                            <button type="button" onclick="updateQuantity('${p.id}', -1)" class="w-7 h-7 bg-white rounded-lg shadow-sm text-brand-800 font-bold hover:bg-brand-500 hover:text-white transition-all flex items-center justify-center cursor-pointer">-</button>
-                            <span id="qty-${p.id}" class="w-6 text-center text-xs font-bold text-brand-900">${qty}</span>
-                            <button type="button" onclick="updateQuantity('${p.id}', 1)" class="w-7 h-7 bg-white rounded-lg shadow-sm text-brand-800 font-bold hover:bg-brand-500 hover:text-white transition-all flex items-center justify-center cursor-pointer">+</button>
+                    <div class="flex items-center justify-between bg-brand-50/70 p-1.5 rounded-xl border border-brand-100">
+                        <span class="text-[10px] text-gray-600">จำนวน:</span>
+                        <div class="flex items-center gap-1.5">
+                            <button type="button" onclick="updateQuantity('${p.id}', -1)" class="w-6 h-6 bg-white rounded-lg shadow-sm text-brand-800 font-bold hover:bg-brand-500 hover:text-white transition-all flex items-center justify-center cursor-pointer">-</button>
+                            <span id="qty-${p.id}" class="w-5 text-center text-xs font-bold text-brand-900">${qty}</span>
+                            <button type="button" onclick="updateQuantity('${p.id}', 1)" class="w-6 h-6 bg-white rounded-lg shadow-sm text-brand-800 font-bold hover:bg-brand-500 hover:text-white transition-all flex items-center justify-center cursor-pointer">+</button>
                         </div>
                     </div>
                 `;
@@ -451,7 +437,7 @@
             const currentTotal = getTotalItemCount();
             const currentQty = cart[id] || 0;
             if (delta > 0) {
-                if (currentTotal >= MAX_TOTAL_ITEMS) { window.alert(`จำกัดสูงสุด ${MAX_TOTAL_ITEMS} ชิ้น`); return; }
+                if (currentTotal >= MAX_TOTAL_ITEMS) { window.alert(`จำกัดสูงสุด ${MAX_TOTAL_ITEMS} ชิ้นต่อออเดอร์`); return; }
                 if (currentQty >= product.stock) { window.alert(`สินค้าหมด`); return; }
             }
             const newQty = currentQty + delta;
@@ -477,7 +463,7 @@
             cartContainer.innerHTML = '';
             const itemIds = Object.keys(cart);
             if (itemIds.length === 0) {
-                cartContainer.innerHTML = '<p class="text-gray-400 text-center py-6 italic bg-gray-50 rounded-2xl border border-dashed border-gray-200">ยังไม่มีสินค้าในตะกร้า</p>';
+                cartContainer.innerHTML = '<p class="text-gray-400 text-center py-5 italic bg-gray-50 rounded-2xl border border-dashed border-gray-200 text-xs">ยังไม่มีสินค้าในตะกร้า</p>';
                 updateTotals(0, 0); return;
             }
             let goodsPriceTotal = 0, handlingFeeTotal = 0;
@@ -487,8 +473,8 @@
                 goodsPriceTotal += product.price * qty;
                 handlingFeeTotal += product.handling * qty;
                 const itemDiv = document.createElement('div');
-                itemDiv.className = "flex justify-between items-center bg-gray-50 p-2.5 rounded-xl text-xs border border-gray-100 shadow-sm";
-                itemDiv.innerHTML = `<div class="flex-1 pr-2"><p class="font-bold text-gray-800 truncate">${product.name}</p><p class="text-[11px] text-gray-500">${qty} ชิ้น</p></div><div class="text-right font-bold text-brand-900">${(product.price + product.handling) * qty} THB</div>`;
+                itemDiv.className = "flex justify-between items-center bg-gray-50 p-2 rounded-xl text-xs border border-gray-100 shadow-sm";
+                itemDiv.innerHTML = `<div class="flex-1 pr-2"><p class="font-bold text-gray-800 truncate">${product.name}</p><p class="text-[10px] text-gray-500">${qty} ชิ้น</p></div><div class="text-right font-bold text-brand-900">${(product.price + product.handling) * qty}฿</div>`;
                 cartContainer.appendChild(itemDiv);
             });
             updateTotals(goodsPriceTotal, handlingFeeTotal);
@@ -522,11 +508,11 @@
         }
 
         function openBillModal() {
-            if (getTotalItemCount() === 0) { window.alert('กรุณาเลือกสินค้า'); return; }
+            if (getTotalItemCount() === 0) { window.alert('กรุณาเลือกสินค้าอย่างน้อย 1 ชิ้น'); return; }
             const name = document.getElementById('cust-name').value;
             const phone = document.getElementById('cust-phone').value;
             const address = document.getElementById('cust-address').value;
-            if (!name || !phone || !address || !slipDataUrl) { window.alert('กรุณากรอกข้อมูลและแนบสลิป'); return; }
+            if (!name || !phone || !address || !slipDataUrl) { window.alert('กรุณากรอกข้อมูลและแนบสลิปให้ครบถ้วน'); return; }
 
             let goodsPrice = 0, handlingFee = 0, itemsTextList = '';
             Object.keys(cart).forEach((id, index) => {
@@ -546,8 +532,8 @@
                 <p><strong>ชื่อ:</strong> ${name}</p>
                 <p><strong>โทร:</strong> ${phone}</p>
                 <p><strong>ที่อยู่:</strong> ${address}</p>
-                <pre class="font-mono text-[11px] mt-2">${itemsTextList}</pre>
-                <p class="font-bold mt-2">ยอดรวมสุทธิ: ${grandTotal} THB</p>
+                <pre class="font-mono text-[10px] mt-1.5 whitespace-pre-wrap">${itemsTextList}</pre>
+                <p class="font-bold mt-1.5 text-brand-650">ยอดรวมสุทธิ: ${grandTotal} THB</p>
             `;
             document.getElementById('bill-modal').classList.remove('hidden');
         }
@@ -559,7 +545,11 @@
             });
         }
 
-        function confirmOrderAndFinalize() {
+        async function confirmOrderAndSave() {
+            const btn = document.getElementById('final-confirm-btn');
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> กำลังบันทึกออเดอร์...`;
+            btn.disabled = true;
+
             const name = document.getElementById('cust-name').value;
             const phone = document.getElementById('cust-phone').value;
             const address = document.getElementById('cust-address').value;
@@ -579,46 +569,75 @@
 
             const grandTotal = goodsPrice + handlingFee + (isShippingSelected ? SHIPPING_FEE : 0);
 
-            // Populate hidden form and submit via iframe (CORS-free)
-            document.getElementById('f-orderId').value = currentGeneratedOrderId;
-            document.getElementById('f-name').value = name;
-            document.getElementById('f-social').value = social;
-            document.getElementById('f-phone').value = phone;
-            document.getElementById('f-shipping').value = shipping;
-            document.getElementById('f-address').value = address;
-            document.getElementById('f-items').value = itemsTextList;
-            document.getElementById('f-total').value = grandTotal;
-            document.getElementById('f-slip').value = slipDataUrl;
+            const payload = {
+                orderId: currentGeneratedOrderId,
+                name: name,
+                social: social,
+                phone: phone,
+                shipping: shipping,
+                address: address,
+                items: itemsTextList,
+                total: grandTotal,
+                slip: slipDataUrl
+            };
 
-            document.getElementById('sheets-form').submit();
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
 
-            window.alert('บันทึกคำสั่งซื้อเข้าระบบหลังบ้านสำเร็จ!');
-            cart = {}; slipDataUrl = '';
-            document.getElementById('order-form').reset();
-            closeBillModal();
+                window.alert('บันทึกคำสั่งซื้อเข้าระบบหลังบ้านสำเร็จเรียบร้อยแล้วครับ!');
+                cart = {}; slipDataUrl = '';
+                document.getElementById('order-form').reset();
+                document.getElementById('slip-preview-container').classList.add('hidden');
+                document.getElementById('selected-count').innerText = '0';
+                renderProducts(currentFilter);
+                renderCartSummary();
+                closeBillModal();
+            } catch (err) {
+                console.error(err);
+                window.alert('เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาลองใหม่อีกครั้ง');
+            } finally {
+                btn.innerHTML = `<i class="fa-solid fa-check-circle text-sm"></i> ยันทึกออเดอร์เข้าระบบหลังบ้านทันที`;
+                btn.disabled = false;
+            }
         }
 
         function renderAdminInventory() {
             const container = document.getElementById('admin-inventory-list');
             container.innerHTML = '';
             products.forEach(p => {
-                container.innerHTML += `<div class="flex justify-between items-center bg-amber-50 p-2 rounded-xl text-xs"><span>${p.name}</span><input type="number" value="${p.stock}" onchange="products.find(x=>x.id=='${p.id}').stock=this.value;saveStock()" class="w-16 text-center border rounded"></div>`;
+                container.innerHTML += `<div class="flex justify-between items-center bg-amber-50 p-2.5 rounded-xl text-xs"><span>${p.name}</span><input type="number" value="${p.stock}" onchange="products.find(x=>x.id=='${p.id}').stock=this.value;saveStock()" class="w-16 text-center border rounded py-1 font-bold text-brand-900"></div>`;
             });
         }
 
         async function fetchOnlineOrders() {
             const container = document.getElementById('online-orders-list');
-            container.innerHTML = '<p class="text-center py-4">กำลังดึงข้อมูลจาก Google Sheets...</p>';
+            container.innerHTML = '<p class="text-center py-6 text-gray-500"><i class="fa-solid fa-spinner fa-spin mr-1"></i> กำลังดึงข้อมูลจาก Google Sheets...</p>';
             try {
                 const res = await fetch(SCRIPT_URL);
                 const data = await res.json();
                 container.innerHTML = '';
-                if(data.length === 0) { container.innerHTML = '<p class="text-center text-gray-400">ยังไม่มีออเดอร์ออนไลน์</p>'; return; }
+                if(!data || data.length === 0) { container.innerHTML = '<p class="text-center text-gray-400 py-6">ยังไม่มีออเดอร์ออนไลน์ในระบบ</p>'; return; }
                 data.forEach(row => {
-                    container.innerHTML += `<div class="bg-white p-3 rounded-xl border flex justify-between items-center"><div><strong>${row[0]}</strong> - คุณ ${row[2]} (${row[4]})<br>ยอด: ${row[7]} THB</div><button onclick="inspectSlip('${row[8]}')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">ดูสลิป</button></div>`;
+                    container.innerHTML += `
+                        <div class="bg-white p-3.5 rounded-2xl border border-brand-100 flex justify-between items-center shadow-sm">
+                            <div>
+                                <p class="font-bold text-brand-900 text-xs">ออเดอร์: ${row[0]} (${row[1]})</p>
+                                <p class="text-gray-700 font-semibold mt-0.5">คุณ ${row[2]} (โทร: ${row[4]})</p>
+                                <p class="text-[11px] text-gray-500 mt-0.5">รายการ: ${row[7]}</p>
+                                <p class="text-brand-650 font-bold mt-1">ยอดรวม: ${row[8]} THB (${row[5]})</p>
+                            </div>
+                            <div>
+                                ${row[9] ? `<button onclick="inspectSlip('${row[9]}')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow transition-all cursor-pointer"><i class="fa-solid fa-eye mr-1"></i> ดูสลิป</button>` : '<span class="text-gray-400 text-[10px]">ไม่มีสลิป</span>'}
+                            </div>
+                        </div>`;
                 });
             } catch (err) {
-                container.innerHTML = '<p class="text-center text-red-500">ไม่สามารถเชื่อมต่อได้ กรุณาตรวจสอบ URL ในโค้ดว่าถูกต้องหรือไม่</p>';
+                container.innerHTML = '<p class="text-center text-red-500 py-6">ไม่สามารถเชื่อมต่อได้ กรุณาลองใหม่อีกครั้ง</p>';
             }
         }
 
