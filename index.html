@@ -79,7 +79,7 @@
                     <button type="button" onclick="filterCategory('apparel')" class="cat-btn px-3.5 py-2 rounded-xl bg-brand-50 text-brand-800 hover:bg-brand-100 font-semibold whitespace-nowrap transition-all">เสื้อผ้า</button>
                 </div>
 
-                <!-- Product Grid Container (Optimized for mobile view) -->
+                <!-- Product Grid Container -->
                 <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-[650px] overflow-y-auto pr-1 custom-scrollbar"></div>
             </div>
         </section>
@@ -209,7 +209,7 @@
 
             <div class="flex flex-col gap-2">
                 <button type="button" id="final-confirm-btn" onclick="confirmOrderAndSave()" class="w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-bold py-3 px-4 rounded-xl shadow-lg transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer">
-                    <i class="fa-solid fa-check-circle text-sm"></i> ยันทึกออเดอร์เข้าระบบหลังบ้านทันที
+                    <i class="fa-solid fa-check-circle text-sm"></i> บันทึกออเดอร์เข้าระบบหลังบ้านทันที
                 </button>
                 <button type="button" onclick="downloadBillImage()" class="w-full bg-stone-800 hover:bg-stone-900 text-white font-semibold py-2.5 px-4 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer shadow">
                     <i class="fa-solid fa-download"></i> บันทึกภาพบิลเก็บไว้
@@ -601,7 +601,7 @@
                 console.error(err);
                 window.alert('เกิดข้อผิดพลาดในการเชื่อมต่อ กรุณาลองใหม่อีกครั้ง');
             } finally {
-                btn.innerHTML = `<i class="fa-solid fa-check-circle text-sm"></i> ยันทึกออเดอร์เข้าระบบหลังบ้านทันที`;
+                btn.innerHTML = `<i class="fa-solid fa-check-circle text-sm"></i> บันทึกออเดอร์เข้าระบบหลังบ้านทันที`;
                 btn.disabled = false;
             }
         }
@@ -622,22 +622,34 @@
                 const data = await res.json();
                 container.innerHTML = '';
                 if(!data || data.length === 0) { container.innerHTML = '<p class="text-center text-gray-400 py-6">ยังไม่มีออเดอร์ออนไลน์ในระบบ</p>'; return; }
+                
+                // ลำดับคอลัมน์จากชีต: [0]=OrderID, [1]=Timestamp, [2]=Name, [3]=Social, [4]=Phone, [5]=Shipping, [6]=Address, [7]=Items, [8]=Total, [9]=Slip
                 data.forEach(row => {
+                    const orderId = row[0] || 'ไม่มีรหัส';
+                    const time = row[1] || '';
+                    const name = row[2] || 'ไม่ระบุชื่อ';
+                    const phone = row[4] || '-';
+                    const shipping = row[5] || '-';
+                    const items = row[7] || '-';
+                    const total = row[8] || '0';
+                    const slip = row[9] || '';
+
                     container.innerHTML += `
                         <div class="bg-white p-3.5 rounded-2xl border border-brand-100 flex justify-between items-center shadow-sm">
                             <div>
-                                <p class="font-bold text-brand-900 text-xs">ออเดอร์: ${row[0]} (${row[1]})</p>
-                                <p class="text-gray-700 font-semibold mt-0.5">คุณ ${row[2]} (โทร: ${row[4]})</p>
-                                <p class="text-[11px] text-gray-500 mt-0.5">รายการ: ${row[7]}</p>
-                                <p class="text-brand-650 font-bold mt-1">ยอดรวม: ${row[8]} THB (${row[5]})</p>
+                                <p class="font-bold text-brand-900 text-xs">ออเดอร์: ${orderId} <span class="text-[10px] text-gray-400 font-normal">(${time})</span></p>
+                                <p class="text-gray-700 font-semibold mt-0.5">คุณ ${name} (โทร: ${phone})</p>
+                                <p class="text-[11px] text-gray-500 mt-0.5">รายการ: ${items}</p>
+                                <p class="text-brand-650 font-bold mt-1">ยอดรวม: ${total} THB (${shipping})</p>
                             </div>
                             <div>
-                                ${row[9] ? `<button onclick="inspectSlip('${row[9]}')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow transition-all cursor-pointer"><i class="fa-solid fa-eye mr-1"></i> ดูสลิป</button>` : '<span class="text-gray-400 text-[10px]">ไม่มีสลิป</span>'}
+                                ${slip ? `<button onclick="inspectSlip('${slip}')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow transition-all cursor-pointer"><i class="fa-solid fa-eye mr-1"></i> ดูสลิป</button>` : '<span class="text-gray-400 text-[10px]">ไม่มีสลิป</span>'}
                             </div>
                         </div>`;
                 });
             } catch (err) {
-                container.innerHTML = '<p class="text-center text-red-500 py-6">ไม่สามารถเชื่อมต่อได้ กรุณาลองใหม่อีกครั้ง</p>';
+                console.error(err);
+                container.innerHTML = '<p class="text-center text-red-500 py-6">ไม่สามารถดึงข้อมูลได้ กรุณาลองใหม่อีกครั้ง</p>';
             }
         }
 
