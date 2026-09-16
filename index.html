@@ -52,8 +52,8 @@
             
             <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
                 <!-- Backoffice trigger built into the handling fee badge -->
-                <div onclick="openAdminDirect()" title="คลิกเพื่อจัดการสต็อกและดูสรุปออเดอร์" class="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-5 py-2 rounded-full text-xs text-amber-300 border border-amber-500/30 shadow-inner cursor-pointer hover:bg-black/60 transition-all select-none">
-                    <span><i class="fa-solid fa-truck-fast mr-1"></i> ค่าหิ้ว: ทั่วไป +60 บาท | เสื้อ +80 บาท (คลิกจัดการหลังบ้าน)</span>
+                <div onclick="openAdminDirect()" title="คลิกเพื่อจัดการสต็อกและดูสรุปออเดอร์ออนไลน์" class="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-5 py-2 rounded-full text-xs text-amber-300 border border-amber-500/30 shadow-inner cursor-pointer hover:bg-black/60 transition-all select-none">
+                    <span><i class="fa-solid fa-cloud-arrow-up mr-1 text-emerald-400"></i> ค่าหิ้ว: ทั่วไป +60 บาท | เสื้อ +80 บาท (คลิกจัดการหลังบ้านออนไลน์)</span>
                 </div>
                 <a href="https://lin.ee/r60tJWt" target="_blank" class="inline-flex items-center gap-2 bg-[#06C755] hover:bg-[#05b34c] text-white px-4 py-2 rounded-full text-xs font-bold shadow-md transition-all">
                     <i class="fa-brands fa-line text-sm"></i> ติดต่อร้านในไลน์
@@ -336,7 +336,7 @@
         <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-2xl border border-amber-300">
             <div class="flex justify-between items-center pb-3 border-b border-brand-100 mb-4">
                 <h3 class="font-bold text-lg text-brand-900 flex items-center gap-2">
-                    <i class="fa-solid fa-warehouse text-amber-600"></i> หลังบ้าน: จัดการสต็อก & ตรวจสอบบิลออเดอร์
+                    <i class="fa-solid fa-warehouse text-amber-600"></i> หลังบ้านออนไลน์: จัดการสต็อก & ตรวจสอบบิลออเดอร์
                 </h3>
                 <button type="button" onclick="closeAdminModal()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold px-2 cursor-pointer">&times;</button>
             </div>
@@ -349,7 +349,7 @@
 
             <!-- Tab 1: Stock Management -->
             <div id="admin-tab-stock" class="space-y-4">
-                <p class="text-xs text-gray-500 mb-2">ปรับแก้จำนวนสินค้าคงเหลือ (Stock) ของแต่ละรายการได้ทันที ระบบจะอัปเดตหน้าบ้านอัตโนมัติ (เริ่มต้น 10 ชิ้น)</p>
+                <p class="text-xs text-gray-500 mb-2">ปรับแก้จำนวนสินค้าคงเหลือ (Stock) ของแต่ละรายการได้ทันที ระบบจะซิงค์ข้อมูลกับฐานข้อมูลออนไลน์อัตโนมัติ</p>
                 <div id="admin-inventory-list" class="space-y-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar mb-4">
                     <!-- Populated dynamically -->
                 </div>
@@ -358,7 +358,7 @@
             <!-- Tab 2: Orders Summary Report & Management -->
             <div id="admin-tab-summary" class="space-y-4 hidden">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-3">
-                    <p class="text-xs text-gray-500">ตรวจสอบบิลออเดอร์ลูกค้า ดูสลิป ยอดขายแยกตามรายการ และจัดการลบออเดอร์เพื่อคืนสต็อก</p>
+                    <p class="text-xs text-gray-500">ตรวจสอบบิลออเดอร์ลูกค้าจากทุกเครื่อง ดูสลิป ยอดขายแยกตามรายการ และจัดการลบบิลได้</p>
                     <button type="button" onclick="exportSummaryAsImage()" class="bg-brand-650 hover:bg-brand-800 text-white font-bold px-4 py-2 rounded-xl text-xs shadow transition-all flex items-center gap-1.5 cursor-pointer">
                         <i class="fa-solid fa-camera"></i> บันทึกรูปภาพสรุปยอดขาย
                     </button>
@@ -366,7 +366,7 @@
                 
                 <div id="summary-export-container" class="bg-amber-50/50 p-4 rounded-2xl border border-brand-200 space-y-4">
                     <div class="text-center mb-2">
-                        <h4 class="font-bold text-brand-900 text-sm">📊 รายงานสรุปยอดสั่งซื้อสินค้า DOMUNDI POP-UP BOOTH</h4>
+                        <h4 class="font-bold text-brand-900 text-sm">📊 รายงานสรุปยอดสั่งซื้อสินค้า DOMUNDI POP-UP BOOTH (ONLINE)</h4>
                         <p class="text-[11px] text-gray-500" id="report-date-time"></p>
                     </div>
                     
@@ -419,13 +419,29 @@
 
     <footer class="bg-brand-900 text-amber-200/70 text-center py-6 text-xs mt-12 border-t border-brand-800">
         <p>© 2026 DOMUNDI POP-UP BOOTH ORDER SYSTEM. All rights reserved.</p>
-        <p class="mt-1">Designed with live menu assets, secure inventory & automated fee calculations.</p>
+        <p class="mt-1">Cloud Synchronized Real-time Order & Inventory System.</p>
     </footer>
 
-    <script>
-        // Product Catalog Data referencing menu images with handling fees (+60 general, +80 apparel) and stock = 10 each
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, doc, setDoc, getDocs, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'domundi-popup-2026';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {
+            apiKey: "",
+            authDomain: "",
+            projectId: "",
+            storageBucket: "",
+            messagingSenderId: "",
+            appId: ""
+        };
+
+        let app, db, auth;
+        let isFirebaseInitialized = false;
+
+        // Default Product Catalog Data
         let products = [
-            // Photocards (Handling fee: 60 THB)
             { id: 'p1', name: 'Random Photocards: Duang With You - OST. Edition', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
             { id: 'p2', name: 'Random Photocards: Take Our Time (9 cards/set)', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
             { id: 'p3', name: 'Random Photocards: It Had To Be You (9 cards/set)', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
@@ -442,7 +458,6 @@
             { id: 'p14', name: 'Random Selfie Photocards - Ver.B', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
             { id: 'p15', name: 'Random Film Photocards (5 cards/set)', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
 
-            // Bag Hangers (Handling fee: 60 THB)
             { id: 'h1', name: 'Bag Hanger - A: Nongzon', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
             { id: 'h2', name: 'Bag Hanger - B: Chae', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
             { id: 'h3', name: 'Bag Hanger - C: Rainy', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
@@ -455,7 +470,6 @@
             { id: 'h10', name: 'Bag Hanger - J: Boksar', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
             { id: 'h11', name: 'Bag Hanger - K: Jessy', category: 'hanger', price: 290, handling: 60, stock: 10, image: 'image.png' },
 
-            // Phone Charms (Handling fee: 60 THB)
             { id: 'c1', name: 'Phone Charm - A: Nongzon', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
             { id: 'c2', name: 'Phone Charm - B: Chae', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
             { id: 'c3', name: 'Phone Charm - C: Rainy', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
@@ -468,7 +482,6 @@
             { id: 'c10', name: 'Phone Charm - J: Boksar', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
             { id: 'c11', name: 'Phone Charm - K: Jessy', category: 'charm', price: 390, handling: 60, stock: 10, image: 'image.png' },
 
-            // Apparel (Handling fee: 80 THB)
             { id: 'a1', name: 'DEXX Shadow Fade Sweater', category: 'apparel', price: 1090, handling: 80, stock: 10, image: 'image.png' },
             { id: 'a2', name: 'DEXX Distressed T-Shirt', category: 'apparel', price: 790, handling: 80, stock: 10, image: 'image_2.png' }
         ];
@@ -482,71 +495,96 @@
         const SHIPPING_FEE = 45;
         const MAX_TOTAL_ITEMS = 5;
 
-        document.addEventListener('DOMContentLoaded', () => {
-            loadSavedData();
-            renderProducts(currentFilter);
-            renderCartSummary();
-            
-            // Listen to storage changes across tabs/sessions
-            window.addEventListener('storage', (e) => {
-                if (e.key && e.key.startsWith('domundi_')) {
-                    loadSavedData();
+        async function initFirebase() {
+            try {
+                if (firebaseConfig && firebaseConfig.projectId) {
+                    app = initializeApp(firebaseConfig);
+                    db = getFirestore(app);
+                    auth = getAuth(app);
+                    
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                    isFirebaseInitialized = true;
+                    
+                    // Setup real-time listeners
+                    setupRealtimeSync();
+                }
+            } catch (e) {
+                console.error("Firebase init error:", e);
+            }
+        }
+
+        function setupRealtimeSync() {
+            if (!isFirebaseInitialized) return;
+
+            // Listen to Products / Stock
+            const productsCol = collection(db, 'artifacts', appId, 'public', 'data', 'products');
+            onSnapshot(productsCol, (snapshot) => {
+                if (!snapshot.empty) {
+                    snapshot.forEach(docSnap => {
+                        const data = docSnap.data();
+                        const prod = products.find(p => p.id === docSnap.id);
+                        if (prod) {
+                            prod.stock = data.stock !== undefined ? data.stock : prod.stock;
+                        }
+                    });
+                    renderProducts(currentFilter);
                     if (!document.getElementById('admin-modal').classList.contains('hidden')) {
                         renderAdminInventory();
-                        renderAdminSummary();
-                        renderOrdersHistory();
                     }
-                    renderProducts(currentFilter);
-                }
-            });
-        });
-
-        function loadSavedData() {
-            try {
-                const savedProducts = localStorage.getItem('domundi_products');
-                const savedStats = localStorage.getItem('domundi_stats');
-                const savedHistory = localStorage.getItem('domundi_history');
-
-                if (savedProducts) {
-                    const parsed = JSON.parse(savedProducts);
-                    products.forEach(p => {
-                        const found = parsed.find(sp => sp.id === p.id);
-                        if (found) p.stock = found.stock;
+                } else {
+                    // Seed initial products if empty
+                    products.forEach(async (p) => {
+                        await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'products', p.id), { stock: p.stock });
                     });
                 }
-                if (savedStats) totalOrderedStats = JSON.parse(savedStats);
-                if (savedHistory) ordersHistory = JSON.parse(savedHistory);
-            } catch (e) {
-                console.error("Error loading localStorage", e);
-            }
+            }, (err) => console.error("Products sync error:", err));
+
+            // Listen to Orders History
+            const ordersCol = collection(db, 'artifacts', appId, 'public', 'data', 'orders');
+            onSnapshot(ordersCol, (snapshot) => {
+                ordersHistory = [];
+                totalOrderedStats = {};
+                snapshot.forEach(docSnap => {
+                    const orderData = docSnap.data();
+                    ordersHistory.push({ docId: docSnap.id, ...orderData });
+                    
+                    if (orderData.items) {
+                        Object.keys(orderData.items).forEach(prodId => {
+                            totalOrderedStats[prodId] = (totalOrderedStats[prodId] || 0) + orderData.items[prodId];
+                        });
+                    }
+                });
+                
+                if (!document.getElementById('admin-modal').classList.contains('hidden')) {
+                    renderAdminSummary();
+                    renderOrdersHistory();
+                }
+            }, (err) => console.error("Orders sync error:", err));
         }
 
-        function savePersistentData() {
-            try {
-                localStorage.setItem('domundi_products', JSON.stringify(products));
-                localStorage.setItem('domundi_stats', JSON.stringify(totalOrderedStats));
-                localStorage.setItem('domundi_history', JSON.stringify(ordersHistory));
-            } catch (e) {
-                console.error("Error saving localStorage", e);
-            }
-        }
+        document.addEventListener('DOMContentLoaded', async () => {
+            await initFirebase();
+            renderProducts(currentFilter);
+            renderCartSummary();
+        });
 
-        // Direct Admin Trigger when clicking the handling fee badge at the top
-        function openAdminDirect() {
-            loadSavedData();
+        window.openAdminDirect = function() {
             renderAdminInventory();
             renderAdminSummary();
             renderOrdersHistory();
             document.getElementById('admin-modal').classList.remove('hidden');
         }
 
-        function closeAdminModal() {
+        window.closeAdminModal = function() {
             document.getElementById('admin-modal').classList.add('hidden');
             renderProducts(currentFilter);
         }
 
-        function switchAdminTab(tab) {
-            loadSavedData();
+        window.switchAdminTab = function(tab) {
             const stockTab = document.getElementById('admin-tab-stock');
             const summaryTab = document.getElementById('admin-tab-summary');
             const btnStock = document.getElementById('tab-btn-stock');
@@ -567,7 +605,7 @@
             }
         }
 
-        function filterCategory(cat) {
+        window.filterCategory = function(cat) {
             currentFilter = cat;
             document.querySelectorAll('.cat-btn').forEach(btn => {
                 btn.classList.remove('bg-brand-500', 'text-white', 'shadow-md');
@@ -579,7 +617,6 @@
         }
 
         function renderProducts(category) {
-            loadSavedData();
             const grid = document.getElementById('product-grid');
             if (!grid) return;
             grid.innerHTML = '';
@@ -622,7 +659,7 @@
             return Object.values(cart).reduce((a, b) => a + b, 0);
         }
 
-        function updateQuantity(id, delta) {
+        window.updateQuantity = function(id, delta) {
             const product = products.find(p => p.id === id);
             const currentTotal = getTotalItemCount();
             const currentQty = cart[id] || 0;
@@ -656,7 +693,7 @@
             renderCartSummary();
         }
 
-        function toggleShipping(wantsShipping) {
+        window.toggleShipping = function(wantsShipping) {
             isShippingSelected = wantsShipping;
             const addressContainer = document.getElementById('address-field-container');
             const addressInput = document.getElementById('cust-address');
@@ -724,7 +761,7 @@
             document.getElementById('summary-grand-total').innerText = grandTotal + ' THB';
         }
 
-        function copyAccountNumber() {
+        window.copyAccountNumber = function() {
             const accNum = document.getElementById('acc-number').innerText;
             const textArea = document.createElement("textarea");
             textArea.value = accNum;
@@ -739,7 +776,7 @@
             document.body.removeChild(textArea);
         }
 
-        function previewSlip(event) {
+        window.previewSlip = function(event) {
             const file = event.target.files[0];
             if (file) {
                 const reader = new FileReader();
@@ -753,7 +790,7 @@
             }
         }
 
-        function openBillModal() {
+        window.openBillModal = function() {
             if (getTotalItemCount() === 0) {
                 window.alert('กรุณาเลือกสินค้าอย่างน้อย 1 ชิ้นก่อนทำรายการ');
                 return;
@@ -796,7 +833,6 @@
             const now = new Date();
             const dateStr = now.toLocaleDateString('th-TH') + ' ' + now.toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' });
 
-            // Populate receipt data
             document.getElementById('receipt-order-id').innerText = orderId;
             document.getElementById('receipt-date-time').innerText = 'วันที่ออกใบเสร็จ: ' + dateStr;
             document.getElementById('rec-name').innerText = name;
@@ -815,21 +851,21 @@
             document.getElementById('bill-modal').classList.remove('hidden');
         }
 
-        function closeBillModal() {
+        window.closeBillModal = function() {
             document.getElementById('bill-modal').classList.add('hidden');
         }
 
-        function openSlipLightbox() {
+        window.openSlipLightbox = function() {
             if (!slipDataUrl) return;
             document.getElementById('lightbox-img').src = slipDataUrl;
             document.getElementById('slip-lightbox').classList.remove('hidden');
         }
 
-        function closeSlipLightbox() {
+        window.closeSlipLightbox = function() {
             document.getElementById('slip-lightbox').classList.add('hidden');
         }
 
-        function exportReceiptAsImage() {
+        window.exportReceiptAsImage = function() {
             const receiptElement = document.getElementById('receipt-export-container');
             if (!receiptElement) return;
 
@@ -844,8 +880,12 @@
             });
         }
 
-        function confirmOrderAndSave() {
-            loadSavedData();
+        window.confirmOrderAndSave = async function() {
+            if (!isFirebaseInitialized) {
+                window.alert('ระบบออนไลน์กำลังเชื่อมต่อ กรุณารอสักครู่แล้วลองใหม่อีกครั้งค่ะ');
+                return;
+            }
+
             const orderId = document.getElementById('receipt-order-id').innerText.replace('วันที่ออกใบเสร็จ: ', '').trim();
             const name = document.getElementById('rec-name').innerText;
             const social = document.getElementById('rec-social').innerText;
@@ -856,45 +896,57 @@
             const grandTotalNum = parseInt(grandTotalText) || 0;
 
             let orderedItemsSnapshot = {};
+            let updatedStocks = {};
+
             Object.keys(cart).forEach(id => {
                 const p = products.find(prod => prod.id === id);
                 const q = cart[id];
                 orderedItemsSnapshot[id] = q;
-                p.stock = Math.max(0, p.stock - q);
-                totalOrderedStats[id] = (totalOrderedStats[id] || 0) + q;
+                const newStock = Math.max(0, p.stock - q);
+                updatedStocks[id] = newStock;
             });
 
-            ordersHistory.push({
-                id: orderId,
-                name: name,
-                social: social,
-                phone: phone,
-                address: address,
-                shipping: shippingType,
-                items: orderedItemsSnapshot,
-                total: grandTotalNum,
-                slip: slipDataUrl,
-                date: new Date().toLocaleDateString('th-TH') + ' ' + new Date().toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' })
-            });
+            try {
+                // 1. Save order to Firestore
+                await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'orders', orderId), {
+                    id: orderId,
+                    name: name,
+                    social: social,
+                    phone: phone,
+                    address: address,
+                    shipping: shippingType,
+                    items: orderedItemsSnapshot,
+                    total: grandTotalNum,
+                    slip: slipDataUrl,
+                    date: new Date().toLocaleDateString('th-TH') + ' ' + new Date().toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' }),
+                    timestamp: Date.now()
+                });
 
-            savePersistentData();
+                // 2. Update stock in Firestore
+                for (let id of Object.keys(updatedStocks)) {
+                    await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'products', id), {
+                        stock: updatedStocks[id]
+                    }, { merge: true });
+                }
 
-            window.alert('ส่งออเดอร์ให้ร้านเรียบร้อยแล้ว! บันทึกคำสั่งซื้อและตัดสต็อกในระบบหลังบ้านสำเร็จ\n\n⚠️ หมายเหตุ: กรุณาส่งบิลสั่งซื้อให้ร้านในไลน์ หรือใส่ข้อมูลติดต่อให้ร้านทักหา');
+                window.alert('ส่งออเดอร์เข้าสู่ระบบออนไลน์สำเร็จ! ตัดสต็อกอัตโนมัติเรียบร้อย\n\n⚠️ หมายเหตุ: กรุณาส่งบิลสั่งซื้อให้ร้านในไลน์ หรือใส่ข้อมูลติดต่อให้ร้านทักหา');
 
-            cart = {};
-            slipDataUrl = '';
-            document.getElementById('order-form').reset();
-            document.getElementById('slip-preview-container').classList.add('hidden');
-            const selectedCountElem = document.getElementById('selected-count');
-            if (selectedCountElem) selectedCountElem.innerText = '0';
-            
-            renderProducts(currentFilter);
-            renderCartSummary();
-            closeBillModal();
+                cart = {};
+                slipDataUrl = '';
+                document.getElementById('order-form').reset();
+                document.getElementById('slip-preview-container').classList.add('hidden');
+                const selectedCountElem = document.getElementById('selected-count');
+                if (selectedCountElem) selectedCountElem.innerText = '0';
+                
+                renderCartSummary();
+                closeBillModal();
+            } catch (err) {
+                console.error("Error saving order online:", err);
+                window.alert('เกิดข้อผิดพลาดในการบันทึกออเดอร์ออนไลน์ กรุณาลองใหม่อีกครั้ง');
+            }
         }
 
         function renderAdminInventory() {
-            loadSavedData();
             const container = document.getElementById('admin-inventory-list');
             if (!container) return;
             container.innerHTML = '';
@@ -909,30 +961,33 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <span class="text-gray-600 font-medium">คงเหลือ:</span>
-                        <input type="number" min="0" value="${p.stock}" onchange="updateStock('${p.id}', this.value)" class="w-20 px-3 py-1.5 rounded-lg border border-gray-300 text-center font-bold text-brand-900 bg-white shadow-sm focus:ring-2 focus:ring-brand-500">
+                        <input type="number" min="0" value="${p.stock}" onchange="updateStockOnline('${p.id}', this.value)" class="w-20 px-3 py-1.5 rounded-lg border border-gray-300 text-center font-bold text-brand-900 bg-white shadow-sm focus:ring-2 focus:ring-brand-500">
                     </div>
                 `;
                 container.appendChild(row);
             });
         }
 
-        function updateStock(id, newStock) {
-            const product = products.find(p => p.id === id);
-            if (product) {
-                product.stock = parseInt(newStock) || 0;
-                savePersistentData();
+        window.updateStockOnline = async function(id, newStock) {
+            if (!isFirebaseInitialized) return;
+            try {
+                const stockVal = parseInt(newStock) || 0;
+                await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'products', id), {
+                    stock: stockVal
+                }, { merge: true });
+            } catch (err) {
+                console.error("Error updating stock online:", err);
             }
         }
 
         function renderAdminSummary() {
-            loadSavedData();
             const container = document.getElementById('admin-summary-list');
             const dateContainer = document.getElementById('report-date-time');
             if (!container) return;
             container.innerHTML = '';
 
             const now = new Date();
-            dateContainer.innerText = `ข้อมูล ณ วันที่ ${now.toLocaleDateString('th-TH')} เวลา ${now.toLocaleTimeString('th-TH')} น.`;
+            dateContainer.innerText = `ข้อมูล ณ วันที่ ${now.toLocaleDateString('th-TH')} เวลา ${now.toLocaleTimeString('th-TH')} น. (ซิงค์ออนไลน์)`;
 
             let hasOrderedItems = false;
             products.forEach(p => {
@@ -955,32 +1010,33 @@
             });
 
             if (!hasOrderedItems) {
-                container.innerHTML = '<p class="text-gray-400 text-center py-4 italic bg-white rounded-xl border border-dashed border-gray-200">ยังไม่มีรายการสั่งซื้อที่ยืนยันผ่านระบบในขณะนี้</p>';
+                container.innerHTML = '<p class="text-gray-400 text-center py-4 italic bg-white rounded-xl border border-dashed border-gray-200">ยังไม่มีรายการสั่งซื้อออนไลน์ในขณะนี้</p>';
             }
         }
 
         function renderOrdersHistory() {
-            loadSavedData();
             const container = document.getElementById('admin-orders-history-list');
             if (!container) return;
             container.innerHTML = '';
 
             if (ordersHistory.length === 0) {
-                container.innerHTML = '<p class="text-gray-400 text-center py-4 italic bg-white rounded-xl border border-dashed border-gray-200">ยังไม่มีประวัติคำสั่งซื้อในระบบ</p>';
+                container.innerHTML = '<p class="text-gray-400 text-center py-4 italic bg-white rounded-xl border border-dashed border-gray-200">ยังไม่มีประวัติคำสั่งซื้อออนไลน์</p>';
                 return;
             }
 
-            ordersHistory.forEach((order, index) => {
+            ordersHistory.forEach((order) => {
                 const orderCard = document.createElement('div');
                 orderCard.className = "bg-white p-3 rounded-xl border border-brand-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 shadow-sm";
                 
                 let itemsSummaryStr = '';
-                Object.keys(order.items).forEach(prodId => {
-                    const prod = products.find(p => p.id === prodId);
-                    if (prod) {
-                        itemsSummaryStr += `${prod.name.substring(0, 22)}... x${order.items[prodId]}<br>`;
-                    }
-                });
+                if (order.items) {
+                    Object.keys(order.items).forEach(prodId => {
+                        const prod = products.find(p => p.id === prodId);
+                        if (prod) {
+                            itemsSummaryStr += `${prod.name.substring(0, 22)}... x${order.items[prodId]}<br>`;
+                        }
+                    });
+                }
 
                 orderCard.innerHTML = `
                     <div class="flex-1">
@@ -993,10 +1049,10 @@
                         <p class="text-brand-650 font-bold mt-1">ยอดรวม: ${order.total} THB</p>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="viewAdminBill(${index})" class="bg-brand-500 hover:bg-brand-650 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow transition-all flex items-center gap-1 cursor-pointer">
+                        <button type="button" onclick="viewAdminBill('${order.docId}')" class="bg-brand-500 hover:bg-brand-650 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow transition-all flex items-center gap-1 cursor-pointer">
                             <i class="fa-solid fa-eye"></i> ดูบิล & สลิป
                         </button>
-                        <button type="button" onclick="deleteOrder(${index})" class="bg-red-500 hover:bg-red-600 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold shadow transition-all flex items-center gap-1 cursor-pointer">
+                        <button type="button" onclick="deleteOrderOnline('${order.docId}')" class="bg-red-500 hover:bg-red-600 text-white px-3.5 py-1.5 rounded-lg text-xs font-bold shadow transition-all flex items-center gap-1 cursor-pointer">
                             <i class="fa-solid fa-trash"></i> ลบ
                         </button>
                     </div>
@@ -1005,27 +1061,27 @@
             });
         }
 
-        let currentViewingBillIndex = null;
-        function viewAdminBill(index) {
-            loadSavedData();
-            currentViewingBillIndex = index;
-            const order = ordersHistory[index];
+        window.viewAdminBill = function(docId) {
+            const order = ordersHistory.find(o => o.docId === docId);
+            if (!order) return;
             const contentContainer = document.getElementById('admin-bill-detail-content');
 
             let itemsListHTML = '';
             let goodsTotal = 0;
             let handlingTotal = 0;
 
-            Object.keys(order.items).forEach(prodId => {
-                const prod = products.find(p => p.id === prodId);
-                const qty = order.items[prodId];
-                if (prod) {
-                    const lineTotal = (prod.price + prod.handling) * qty;
-                    goodsTotal += prod.price * qty;
-                    handlingTotal += prod.handling * qty;
-                    itemsListHTML += `<li class="flex justify-between"><span>- ${prod.name} x ${qty}</span> <span class="font-bold">${lineTotal} ฿</span></li>`;
-                }
-            });
+            if (order.items) {
+                Object.keys(order.items).forEach(prodId => {
+                    const prod = products.find(p => p.id === prodId);
+                    const qty = order.items[prodId];
+                    if (prod) {
+                        const lineTotal = (prod.price + prod.handling) * qty;
+                        goodsTotal += prod.price * qty;
+                        handlingTotal += prod.handling * qty;
+                        itemsListHTML += `<li class="flex justify-between"><span>- ${prod.name} x ${qty}</span> <span class="font-bold">${lineTotal} ฿</span></li>`;
+                    }
+                });
+            }
 
             const shippingFee = order.total - (goodsTotal + handlingTotal);
 
@@ -1066,11 +1122,11 @@
             document.getElementById('admin-bill-modal').classList.remove('hidden');
         }
 
-        function closeAdminBillModal() {
+        window.closeAdminBillModal = function() {
             document.getElementById('admin-bill-modal').classList.add('hidden');
         }
 
-        function exportAdminBillAsImage() {
+        window.exportAdminBillAsImage = function() {
             const billEl = document.getElementById('admin-printable-bill');
             if (!billEl) return;
 
@@ -1085,32 +1141,34 @@
             });
         }
 
-        function deleteOrder(index) {
-            if (window.confirm('คุณต้องการลบออเดอร์นี้ใช่หรือไม่? (ระบบจะทำการคืนสต็อกสินค้ากลับสู่คลังอัตโนมัติ)')) {
-                loadSavedData();
-                const order = ordersHistory[index];
-                
-                Object.keys(order.items).forEach(prodId => {
-                    const prod = products.find(p => p.id === prodId);
-                    const qty = order.items[prodId];
-                    if (prod) {
-                        prod.stock += qty;
+        window.deleteOrderOnline = async function(docId) {
+            if (window.confirm('คุณต้องการลบออเดอร์นี้ใช่หรือไม่? (ระบบจะทำการคืนสต็อกสินค้ากลับสู่คลังออนไลน์ให้อัตโนมัติ)')) {
+                if (!isFirebaseInitialized) return;
+                try {
+                    const order = ordersHistory.find(o => o.docId === docId);
+                    if (order && order.items) {
+                        for (let prodId of Object.keys(order.items)) {
+                            const prod = products.find(p => p.id === prodId);
+                            const q = order.items[prodId];
+                            if (prod) {
+                                const restoredStock = prod.stock + q;
+                                await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'products', prodId), {
+                                    stock: restoredStock
+                                }, { merge: true });
+                            }
+                        }
                     }
-                    if (totalOrderedStats[prodId]) {
-                        totalOrderedStats[prodId] = Math.max(0, totalOrderedStats[prodId] - qty);
-                    }
-                });
 
-                ordersHistory.splice(index, 1);
-                savePersistentData();
-                renderAdminSummary();
-                renderOrdersHistory();
-                renderAdminInventory();
-                window.alert('ลบออเดอร์และคืนสต็อกสินค้าเรียบร้อยแล้วค่ะ');
+                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'orders', docId));
+                    window.alert('ลบออเดอร์และคืนสต็อกออนไลน์เรียบร้อยแล้วค่ะ');
+                } catch (err) {
+                    console.error("Error deleting order online:", err);
+                    window.alert('ไม่สามารถลบออเดอร์ได้ กรุณาลองใหม่อีกครั้ง');
+                }
             }
         }
 
-        function exportSummaryAsImage() {
+        window.exportSummaryAsImage = function() {
             const exportElement = document.getElementById('summary-export-container');
             if (!exportElement) return;
 
