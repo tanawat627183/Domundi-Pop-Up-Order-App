@@ -4,30 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOMUNDI POP-UP BOOTH - Official Pre-Order 2026</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts Prompt -->
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- html2canvas for exporting summary and bill as image -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Prompt', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Prompt', 'sans-serif'] },
                     colors: {
                         brand: {
-                            50: '#fdf8f5',
-                            100: '#f9eee6',
-                            200: '#f0d9c4',
-                            500: '#b87333',
-                            650: '#8c531e',
-                            800: '#593210',
-                            900: '#3d220a',
+                            50: '#fdf8f5', 100: '#f9eee6', 200: '#f0d9c4',
+                            500: '#b87333', 650: '#8c531e', 800: '#593210', 900: '#3d220a'
                         }
                     }
                 }
@@ -51,9 +40,8 @@
             <p class="text-xs md:text-sm text-amber-200 mt-2 font-light tracking-wide">AT ICONIC CRAFT COFFEE EXPO 2026 (16 - 20 SEPT 2026 • ICONSIAM HALL, 7TH FLOOR)</p>
             
             <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
-                <!-- Click handling fee badge to open Backoffice -->
-                <div onclick="openAdminDirect()" title="คลิกเพื่อจัดการสต็อกและดูหลังบ้านทั้งหมด" class="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-5 py-2 rounded-full text-xs text-amber-300 border border-amber-500/30 shadow-inner cursor-pointer hover:bg-black/60 transition-all select-none">
-                    <span><i class="fa-solid fa-truck-fast mr-1"></i> ค่าหิ้ว: ทั่วไป +60 บาท | เสื้อ +80 บาท (คลิกจัดการหลังบ้าน)</span>
+                <div onclick="openAdminDirect()" title="เปิดหลังบ้านออนไลน์" class="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-5 py-2 rounded-full text-xs text-amber-300 border border-amber-500/30 shadow-inner cursor-pointer hover:bg-black/60 transition-all select-none">
+                    <span><i class="fa-solid fa-warehouse mr-1"></i> ค่าหิ้ว: ทั่วไป +60 บาท | เสื้อ +80 บาท (คลิกเปิดหลังบ้านรวมบิลออนไลน์)</span>
                 </div>
                 <a href="https://lin.ee/OKHl9Bs" target="_blank" class="inline-flex items-center gap-2 bg-[#06C755] hover:bg-[#05b34c] text-white px-4 py-2 rounded-full text-xs font-bold shadow-md transition-all">
                     <i class="fa-brands fa-line text-sm"></i> เพิ่มเพื่อนทางไลน์ร้าน
@@ -79,7 +67,6 @@
                     </div>
                 </div>
 
-                <!-- Category Filters -->
                 <div class="flex gap-2 overflow-x-auto pb-3 mb-5 custom-scrollbar text-xs">
                     <button type="button" onclick="filterCategory('all')" class="cat-btn active px-4 py-2 rounded-xl bg-brand-500 text-white font-semibold whitespace-nowrap transition-all shadow-md">ทั้งหมด</button>
                     <button type="button" onclick="filterCategory('card')" class="cat-btn px-4 py-2 rounded-xl bg-brand-50 text-brand-800 hover:bg-brand-100 font-semibold whitespace-nowrap transition-all">โฟโตการ์ด & การ์ดสุ่ม</button>
@@ -88,10 +75,7 @@
                     <button type="button" onclick="filterCategory('apparel')" class="cat-btn px-4 py-2 rounded-xl bg-brand-50 text-brand-800 hover:bg-brand-100 font-semibold whitespace-nowrap transition-all">เครื่องแต่งกาย (เสื้อ)</button>
                 </div>
 
-                <!-- Product Grid Container -->
-                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[700px] overflow-y-auto pr-2 custom-scrollbar">
-                    <!-- Populated dynamically -->
-                </div>
+                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[700px] overflow-y-auto pr-2 custom-scrollbar"></div>
             </div>
         </section>
 
@@ -107,12 +91,10 @@
                     </a>
                 </div>
 
-                <!-- Cart Items List -->
                 <div id="cart-items" class="space-y-3 mb-5 max-h-52 overflow-y-auto pr-1 custom-scrollbar text-sm">
                     <p class="text-gray-400 text-center py-6 italic bg-gray-50 rounded-2xl border border-dashed border-gray-200">ยังไม่มีสินค้าในตะกร้า</p>
                 </div>
 
-                <!-- Shipping Option Toggle -->
                 <div class="mb-4 bg-brand-50 p-3.5 rounded-2xl border border-brand-200">
                     <label class="block font-bold text-brand-900 mb-2 text-xs flex items-center gap-1.5">
                         <i class="fa-solid fa-truck text-brand-500"></i> เลือกรูปแบบการรับสินค้า <span class="text-red-500">*</span>
@@ -135,7 +117,6 @@
                     </div>
                 </div>
 
-                <!-- Financial Breakdown Box -->
                 <div class="bg-gradient-to-br from-brand-50 to-amber-50/50 rounded-2xl p-4 text-sm space-y-2 mb-6 border border-brand-200 shadow-sm">
                     <div class="flex justify-between text-gray-700">
                         <span>ราคาสินค้ารวม:</span>
@@ -203,7 +184,6 @@
                         </div>
                     </div>
 
-                    <!-- Submit trigger button -->
                     <button type="submit" id="submit-btn" class="w-full mt-5 bg-gradient-to-r from-brand-500 to-brand-650 hover:from-brand-650 hover:to-brand-800 text-white font-bold py-3.5 px-4 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer text-base">
                         <i class="fa-solid fa-file-lines text-lg"></i> ตรวจสอบบิลสรุปยอด & ส่งคำสั่งซื้อ
                     </button>
@@ -222,22 +202,18 @@
                 <button type="button" onclick="closeBillModal()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold px-2 cursor-pointer">&times;</button>
             </div>
 
-            <!-- Exportable Bill Content Area -->
             <div id="bill-printable-area" class="bg-white p-5 rounded-2xl border border-brand-200 space-y-3 mb-4 shadow-sm text-xs font-sans">
                 <div class="text-center pb-3 border-b border-dashed border-gray-300">
                     <h4 class="font-extrabold text-brand-900 text-sm">DOMUNDI POP-UP BOOTH 2026</h4>
                     <p class="text-[10px] text-gray-500">ใบเสร็จรับเงิน / ใบยืนยันคำสั่งซื้อล่วงหน้า</p>
                     <p id="modal-order-id" class="font-mono font-bold text-brand-650 mt-1"></p>
                 </div>
-                <div id="bill-content-preview" class="space-y-1.5 text-gray-700">
-                    <!-- Dynamic Bill Details -->
-                </div>
+                <div id="bill-content-preview" class="space-y-1.5 text-gray-700"></div>
                 <div class="pt-2 border-t border-dashed border-gray-300 text-[11px] text-center text-gray-500">
                     ขอบคุณที่สนับสนุนโดมุนดีค่ะ ❤️
                 </div>
             </div>
 
-            <!-- Note requested by user -->
             <div class="bg-amber-50 text-amber-900 p-3.5 rounded-2xl text-xs mb-5 flex items-start gap-2.5 border border-amber-200 shadow-sm">
                 <i class="fa-solid fa-circle-info text-amber-600 mt-0.5 text-base"></i>
                 <span><strong>หมายเหตุ:</strong> กรุณาส่งบิลสั่งซื้อให้ร้านในไลน์ หรือใส่ข้อมูลติดต่อให้ร้านทักหา</span>
@@ -245,10 +221,10 @@
 
             <div class="flex flex-col sm:flex-row gap-2.5">
                 <button type="button" onclick="downloadBillImage()" class="flex-1 bg-stone-800 hover:bg-stone-900 text-white font-bold py-3 px-4 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer shadow">
-                    <i class="fa-solid fa-download"></i> บันทึกภาพบิล (Save Bill)
+                    <i class="fa-solid fa-download"></i> บันทึกภาพบิล
                 </button>
-                <button type="button" onclick="confirmOrderAndFinalize()" class="flex-1 bg-[#06C755] hover:bg-[#05b34c] text-white font-bold py-3 px-4 rounded-xl shadow-lg transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer">
-                    <i class="fa-brands fa-line text-base"></i> ส่งออเดอร์ให้ร้าน (ไปเพิ่มเพื่อน LINE)
+                <button type="button" id="confirm-order-btn" onclick="confirmOrderAndFinalize()" class="flex-1 bg-[#06C755] hover:bg-[#05b34c] text-white font-bold py-3 px-4 rounded-xl shadow-lg transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i class="fa-brands fa-line text-base"></i> ส่งออเดอร์ให้ร้าน (ไป LINE)
                 </button>
             </div>
         </div>
@@ -259,72 +235,44 @@
         <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-2xl border border-amber-300">
             <div class="flex justify-between items-center pb-3 border-b border-brand-100 mb-4">
                 <h3 class="font-bold text-lg text-brand-900 flex items-center gap-2">
-                    <i class="fa-solid fa-warehouse text-amber-600"></i> หลังบ้าน: จัดการสต็อก & ดูบิลออเดอร์ลูกค้าทั้งหมด
+                    <i class="fa-solid fa-warehouse text-amber-600"></i> หลังบ้านออนไลน์: จัดการสต็อก & ดูบิลออเดอร์
                 </h3>
                 <button type="button" onclick="closeAdminModal()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold px-2 cursor-pointer">&times;</button>
             </div>
             
-            <!-- Tabs inside Backoffice -->
             <div class="flex gap-2 mb-5 border-b border-gray-200 pb-3 flex-wrap">
-                <button type="button" onclick="switchAdminTab('stock')" id="tab-btn-stock" class="px-4 py-2 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer">จัดการสต็อกสินค้าคงเหลือ</button>
-                <button type="button" onclick="switchAdminTab('orders')" id="tab-btn-orders" class="px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer">ประวัติบิลออเดอร์ทั้งหมด</button>
-                <button type="button" onclick="switchAdminTab('summary')" id="tab-btn-summary" class="px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer">สรุปยอดขาย</button>
+                <button type="button" onclick="switchAdminTab('stock')" id="tab-btn-stock" class="px-4 py-2 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer">จัดการสต็อกสินค้า</button>
+                <button type="button" onclick="switchAdminTab('orders')" id="tab-btn-orders" class="px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer">ดูบิลออเดอร์ออนไลน์ (Google Sheets)</button>
             </div>
 
-            <!-- Tab 1: Stock Management -->
+            <!-- Tab 1: Stock -->
             <div id="admin-tab-stock" class="space-y-4">
-                <p class="text-xs text-gray-500 mb-2">ปรับแก้จำนวนสินค้าคงเหลือ (Stock) ของแต่ละรายการได้ทันที ระบบจะอัปเดตหน้าบ้านอัตโนมัติ (เริ่มต้น 10 ชิ้น)</p>
-                <div id="admin-inventory-list" class="space-y-3 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar mb-4">
-                    <!-- Populated dynamically -->
-                </div>
+                <p class="text-xs text-gray-500 mb-2">กำหนดจำนวนสินค้าคงเหลือ (Stock)</p>
+                <div id="admin-inventory-list" class="space-y-3 max-h-[380px] overflow-y-auto pr-2 custom-scrollbar mb-4"></div>
             </div>
 
-            <!-- Tab 2: Orders History Viewer -->
+            <!-- Tab 2: Online Orders Viewer -->
             <div id="admin-tab-orders" class="space-y-4 hidden">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-2">
-                    <p class="text-xs text-gray-500">ประวัติบิลออเดอร์ทั้งหมดที่ลูกค้าส่งเข้ามาในเครื่องนี้ สามารถกดดูสลิปหรือลบออเดอร์คืนสต็อกได้</p>
-                    <button type="button" onclick="exportOrdersJSON()" class="bg-stone-800 hover:bg-stone-900 text-white font-bold px-3 py-1.5 rounded-xl text-xs shadow transition-all flex items-center gap-1 cursor-pointer">
-                        <i class="fa-solid fa-download"></i> สำรองข้อมูลออเดอร์ (Export)
+                <div class="flex justify-between items-center">
+                    <p class="text-xs text-gray-500">ดึงข้อมูลบิลออเดอร์ล่าสุดจาก Google Sheets (ทุกเครื่องที่สั่งจะมารวมตรงนี้)</p>
+                    <button type="button" onclick="fetchOnlineOrders()" class="bg-brand-500 hover:bg-brand-650 text-white font-bold px-3 py-1.5 rounded-xl text-xs shadow transition-all flex items-center gap-1 cursor-pointer">
+                        <i class="fa-solid fa-rotate"></i> โหลดข้อมูลล่าสุด
                     </button>
                 </div>
-                <div id="admin-orders-history-list" class="space-y-3 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar text-xs">
-                    <!-- Populated dynamically -->
-                </div>
-            </div>
-
-            <!-- Tab 3: Summary Report -->
-            <div id="admin-tab-summary" class="space-y-4 hidden">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-3">
-                    <p class="text-xs text-gray-500">รายงานยอดสั่งซื้อสะสมจากลูกค้า</p>
-                    <button type="button" onclick="exportSummaryAsImage()" class="bg-brand-650 hover:bg-brand-800 text-white font-bold px-4 py-2 rounded-xl text-xs shadow transition-all flex items-center gap-1.5 cursor-pointer">
-                        <i class="fa-solid fa-camera"></i> บันทึกรูปภาพรายงานสรุปยอด
-                    </button>
-                </div>
-                
-                <div id="summary-export-container" class="bg-amber-50/50 p-4 rounded-2xl border border-brand-200 space-y-4">
-                    <div class="text-center mb-2">
-                        <h4 class="font-bold text-brand-900 text-sm">📊 รายงานสรุปยอดสั่งซื้อสินค้า DOMUNDI POP-UP BOOTH</h4>
-                        <p class="text-[11px] text-gray-500" id="report-date-time"></p>
-                    </div>
-                    
-                    <div>
-                        <h5 class="font-bold text-brand-800 text-xs mb-2">ยอดรวมแยกตามสินค้า:</h5>
-                        <div id="admin-summary-list" class="space-y-2 max-h-[220px] overflow-y-auto pr-2 custom-scrollbar text-xs">
-                            <!-- Populated dynamically -->
-                        </div>
-                    </div>
+                <div id="online-orders-list" class="space-y-3 max-h-[380px] overflow-y-auto pr-2 custom-scrollbar text-xs">
+                    <p class="text-gray-400 text-center py-8 italic">กำลังโหลดข้อมูลจาก Google Sheets...</p>
                 </div>
             </div>
 
             <div class="flex justify-end pt-4 border-t border-brand-100 mt-4">
                 <button type="button" onclick="closeAdminModal()" class="bg-brand-500 hover:bg-brand-650 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition-all shadow-md cursor-pointer">
-                    บันทึก & ปิดหน้าต่าง
+                    ปิดหน้าต่าง
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Slip Inspector Modal for Admin -->
+    <!-- Slip Inspector Modal -->
     <div id="slip-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl text-center relative">
             <button type="button" onclick="closeSlipModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold cursor-pointer">&times;</button>
@@ -332,16 +280,14 @@
             <div class="bg-gray-100 p-2 rounded-2xl max-h-[70vh] overflow-y-auto flex items-center justify-center">
                 <img id="admin-inspect-slip-img" src="" alt="Customer Slip" class="max-w-full rounded-xl object-contain shadow">
             </div>
-            <button type="button" onclick="closeSlipModal()" class="mt-4 bg-brand-500 hover:bg-brand-650 text-white font-bold px-6 py-2 rounded-xl text-xs shadow transition-all cursor-pointer">ปิดหน้าต่าง</button>
+            <button type="button" onclick="closeSlipModal()" class="mt-4 bg-brand-500 text-white font-bold px-6 py-2 rounded-xl text-xs cursor-pointer">ปิดหน้าต่าง</button>
         </div>
     </div>
 
-    <footer class="bg-brand-900 text-amber-200/70 text-center py-6 text-xs mt-12 border-t border-brand-800">
-        <p>© 2026 DOMUNDI POP-UP BOOTH ORDER SYSTEM. All rights reserved.</p>
-        <p class="mt-1">Direct LINE Add Friend Integration & Local Backoffice Sync.</p>
-    </footer>
-
     <script>
+        // ใส่ URL ที่ได้จาก Google Apps Script Web App ตรงนี้ครับ
+        const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
         let products = [
             { id: 'p1', name: 'Random Photocards: Duang With You - OST. Edition', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
             { id: 'p2', name: 'Random Photocards: Take Our Time (9 cards/set)', category: 'card', price: 390, handling: 60, stock: 10, image: 'image.png' },
@@ -388,8 +334,6 @@
         ];
 
         let cart = {}; 
-        let totalOrderedStats = {}; 
-        let ordersHistory = []; 
         let slipDataUrl = '';
         let isShippingSelected = true;
         let currentFilter = 'all';
@@ -398,17 +342,14 @@
         let currentGeneratedOrderId = '';
 
         document.addEventListener('DOMContentLoaded', () => {
-            loadSavedData();
+            loadSavedStock();
             renderProducts(currentFilter);
             renderCartSummary();
         });
 
-        function loadSavedData() {
+        function loadSavedStock() {
             try {
                 const savedProducts = localStorage.getItem('domundi_products');
-                const savedStats = localStorage.getItem('domundi_stats');
-                const savedHistory = localStorage.getItem('domundi_history');
-
                 if (savedProducts) {
                     const parsed = JSON.parse(savedProducts);
                     products.forEach(p => {
@@ -416,27 +357,15 @@
                         if (found) p.stock = found.stock;
                     });
                 }
-                if (savedStats) totalOrderedStats = JSON.parse(savedStats);
-                if (savedHistory) ordersHistory = JSON.parse(savedHistory);
-            } catch (e) {
-                console.error("Error loading localStorage", e);
-            }
+            } catch (e) { console.error(e); }
         }
 
-        function savePersistentData() {
-            try {
-                localStorage.setItem('domundi_products', JSON.stringify(products));
-                localStorage.setItem('domundi_stats', JSON.stringify(totalOrderedStats));
-                localStorage.setItem('domundi_history', JSON.stringify(ordersHistory));
-            } catch (e) {
-                console.error("Error saving localStorage", e);
-            }
+        function saveStock() {
+            localStorage.setItem('domundi_products', JSON.stringify(products));
         }
 
         function openAdminDirect() {
             renderAdminInventory();
-            renderOrdersHistory();
-            renderAdminSummary();
             document.getElementById('admin-modal').classList.remove('hidden');
         }
 
@@ -448,31 +377,20 @@
         function switchAdminTab(tab) {
             const stockTab = document.getElementById('admin-tab-stock');
             const ordersTab = document.getElementById('admin-tab-orders');
-            const summaryTab = document.getElementById('admin-tab-summary');
-            
             const btnStock = document.getElementById('tab-btn-stock');
             const btnOrders = document.getElementById('tab-btn-orders');
-            const btnSummary = document.getElementById('tab-btn-summary');
-
-            stockTab.classList.add('hidden');
-            ordersTab.classList.add('hidden');
-            summaryTab.classList.add('hidden');
-
-            btnStock.className = "px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer";
-            btnOrders.className = "px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer";
-            btnSummary.className = "px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer";
 
             if (tab === 'stock') {
                 stockTab.classList.remove('hidden');
+                ordersTab.classList.add('hidden');
                 btnStock.className = "px-4 py-2 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer";
-            } else if (tab === 'orders') {
+                btnOrders.className = "px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer";
+            } else {
+                stockTab.classList.add('hidden');
                 ordersTab.classList.remove('hidden');
                 btnOrders.className = "px-4 py-2 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer";
-                renderOrdersHistory();
-            } else {
-                summaryTab.classList.remove('hidden');
-                btnSummary.className = "px-4 py-2 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer";
-                renderAdminSummary();
+                btnStock.className = "px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer";
+                fetchOnlineOrders();
             }
         }
 
@@ -491,7 +409,6 @@
             const grid = document.getElementById('product-grid');
             if (!grid) return;
             grid.innerHTML = '';
-            
             const filtered = category === 'all' ? products : products.filter(p => p.category === category);
             
             filtered.forEach(p => {
@@ -503,9 +420,7 @@
                     <div>
                         <div class="relative mb-3">
                             <img src="${p.image}" alt="${p.name}" class="w-full h-40 object-cover rounded-xl bg-brand-50 shadow-sm" onerror="this.src='https://placehold.co/300x400/f3e8dc/593210?text=DOMUNDI+MENU'">
-                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-lg text-[10px] font-bold ${p.stock > 0 ? 'bg-green-600 text-white' : 'bg-red-600 text-white'} shadow">
-                                ${p.stock > 0 ? 'เหลือ: ' + p.stock : 'สินค้าหมด'}
-                            </span>
+                            <span class="absolute top-2 right-2 px-2 py-0.5 rounded-lg text-[10px] font-bold ${p.stock > 0 ? 'bg-green-600 text-white' : 'bg-red-600 text-white'} shadow">${p.stock > 0 ? 'เหลือ: ' + p.stock : 'สินค้าหมด'}</span>
                         </div>
                         <h4 class="font-bold text-xs text-brand-900 line-clamp-2 mb-1.5">${p.name}</h4>
                         <div class="flex items-center justify-between text-xs mb-3">
@@ -526,41 +441,21 @@
             });
         }
 
-        function getTotalItemCount() {
-            return Object.values(cart).reduce((a, b) => a + b, 0);
-        }
+        function getTotalItemCount() { return Object.values(cart).reduce((a, b) => a + b, 0); }
 
         function updateQuantity(id, delta) {
             const product = products.find(p => p.id === id);
             const currentTotal = getTotalItemCount();
             const currentQty = cart[id] || 0;
-
             if (delta > 0) {
-                if (currentTotal >= MAX_TOTAL_ITEMS) {
-                    window.alert(`ขออภัยค่ะ! จำกัดการสั่งซื้อรวมสูงสุดไม่เกิน ${MAX_TOTAL_ITEMS} ชิ้นต่อ 1 คำสั่งซื้อ`);
-                    return;
-                }
-                if (currentQty >= product.stock) {
-                    window.alert(`ขออภัยค่ะ สินค้า "${product.name}" มีจำนวนในสต็อกคงเหลือเพียง ${product.stock} ชิ้นเท่านั้น`);
-                    return;
-                }
+                if (currentTotal >= MAX_TOTAL_ITEMS) { window.alert(`จำกัดสูงสุด ${MAX_TOTAL_ITEMS} ชิ้น`); return; }
+                if (currentQty >= product.stock) { window.alert(`สินค้าหมด`); return; }
             }
-
             const newQty = currentQty + delta;
             if (newQty < 0) return;
-
-            if (newQty === 0) {
-                delete cart[id];
-            } else {
-                cart[id] = newQty;
-            }
-
-            const qtySpan = document.getElementById(`qty-${id}`);
-            if (qtySpan) qtySpan.innerText = cart[id] || 0;
-
-            const selectedCountElem = document.getElementById('selected-count');
-            if (selectedCountElem) selectedCountElem.innerText = getTotalItemCount();
-            
+            if (newQty === 0) delete cart[id]; else cart[id] = newQty;
+            document.getElementById(`qty-${id}`).innerText = cart[id] || 0;
+            document.getElementById('selected-count').innerText = getTotalItemCount();
             renderCartSummary();
         }
 
@@ -568,15 +463,8 @@
             isShippingSelected = wantsShipping;
             const addressContainer = document.getElementById('address-field-container');
             const addressInput = document.getElementById('cust-address');
-            
-            if (wantsShipping) {
-                addressContainer.style.display = 'block';
-                addressInput.setAttribute('required', 'true');
-            } else {
-                addressContainer.style.display = 'none';
-                addressInput.removeAttribute('required');
-                addressInput.value = 'รับสินค้าเองที่บูธ (ICONSIAM)';
-            }
+            if (wantsShipping) { addressContainer.style.display = 'block'; addressInput.setAttribute('required', 'true'); }
+            else { addressContainer.style.display = 'none'; addressInput.removeAttribute('required'); addressInput.value = 'รับสินค้าเองที่บูธ (ICONSIAM)'; }
             renderCartSummary();
         }
 
@@ -584,67 +472,37 @@
             const cartContainer = document.getElementById('cart-items');
             if (!cartContainer) return;
             cartContainer.innerHTML = '';
-
             const itemIds = Object.keys(cart);
             if (itemIds.length === 0) {
                 cartContainer.innerHTML = '<p class="text-gray-400 text-center py-6 italic bg-gray-50 rounded-2xl border border-dashed border-gray-200">ยังไม่มีสินค้าในตะกร้า</p>';
-                updateTotals(0, 0);
-                return;
+                updateTotals(0, 0); return;
             }
-
-            let goodsPriceTotal = 0;
-            let handlingFeeTotal = 0;
-
+            let goodsPriceTotal = 0, handlingFeeTotal = 0;
             itemIds.forEach(id => {
                 const product = products.find(p => p.id === id);
                 const qty = cart[id];
-                const itemTotalGoods = product.price * qty;
-                const itemTotalHandling = product.handling * qty;
-
-                goodsPriceTotal += itemTotalGoods;
-                handlingFeeTotal += itemTotalHandling;
-
+                goodsPriceTotal += product.price * qty;
+                handlingFeeTotal += product.handling * qty;
                 const itemDiv = document.createElement('div');
                 itemDiv.className = "flex justify-between items-center bg-gray-50 p-2.5 rounded-xl text-xs border border-gray-100 shadow-sm";
-                itemDiv.innerHTML = `
-                    <div class="flex-1 pr-2">
-                        <p class="font-bold text-gray-800 truncate">${product.name}</p>
-                        <p class="text-[11px] text-gray-500">${qty} ชิ้น x (${product.price} + ค่าหิ้ว ${product.handling})</p>
-                    </div>
-                    <div class="text-right font-bold text-brand-900">
-                        ${itemTotalGoods + itemTotalHandling} THB
-                    </div>
-                `;
+                itemDiv.innerHTML = `<div class="flex-1 pr-2"><p class="font-bold text-gray-800 truncate">${product.name}</p><p class="text-[11px] text-gray-500">${qty} ชิ้น</p></div><div class="text-right font-bold text-brand-900">${(product.price + product.handling) * qty} THB</div>`;
                 cartContainer.appendChild(itemDiv);
             });
-
             updateTotals(goodsPriceTotal, handlingFeeTotal);
         }
 
         function updateTotals(goods, handling) {
             const currentShippingFee = isShippingSelected ? SHIPPING_FEE : 0;
             const grandTotal = goods + handling + currentShippingFee;
-
             document.getElementById('summary-goods-price').innerText = goods + ' THB';
             document.getElementById('summary-handling-fee').innerText = handling + ' THB';
             document.getElementById('summary-shipping-fee').innerText = currentShippingFee + ' THB';
-            document.getElementById('shipping-label-text').innerText = isShippingSelected ? 'ค่าจัดส่งพัสดุ:' : 'ค่าจัดส่ง (รับที่บูธ):';
             document.getElementById('summary-grand-total').innerText = grandTotal + ' THB';
         }
 
         function copyAccountNumber() {
-            const accNum = document.getElementById('acc-number').innerText;
-            const textArea = document.createElement("textarea");
-            textArea.value = accNum;
-            document.body.appendChild(textArea);
-            textArea.select();
-            try {
-                document.execCommand('copy');
-                window.alert('คัดลอกเลขบัญชี 0991512365 เรียบร้อยแล้ว!');
-            } catch (err) {
-                console.error('Failed to copy account number', err);
-            }
-            document.body.removeChild(textArea);
+            navigator.clipboard.writeText(document.getElementById('acc-number').innerText);
+            window.alert('คัดลอกเลขบัญชีแล้ว');
         }
 
         function previewSlip(event) {
@@ -653,8 +511,7 @@
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     slipDataUrl = e.target.result;
-                    const img = document.getElementById('slip-img');
-                    img.src = slipDataUrl;
+                    document.getElementById('slip-img').src = slipDataUrl;
                     document.getElementById('slip-preview-container').classList.remove('hidden');
                 }
                 reader.readAsDataURL(file);
@@ -662,338 +519,125 @@
         }
 
         function openBillModal() {
-            if (getTotalItemCount() === 0) {
-                window.alert('กรุณาเลือกสินค้าอย่างน้อย 1 ชิ้นก่อนทำรายการ');
-                return;
-            }
-
+            if (getTotalItemCount() === 0) { window.alert('กรุณาเลือกสินค้า'); return; }
             const name = document.getElementById('cust-name').value;
             const phone = document.getElementById('cust-phone').value;
             const address = document.getElementById('cust-address').value;
+            if (!name || !phone || !address || !slipDataUrl) { window.alert('กรุณากรอกข้อมูลและแนบสลิป'); return; }
 
-            if (!name || !phone || !address || !slipDataUrl) {
-                window.alert('กรุณากรอกข้อมูลชื่อ, เบอร์โทร, ที่อยู่ และแนบสลิปการโอนเงินให้ครบถ้วน');
-                return;
-            }
-
-            let goodsPrice = 0;
-            let handlingFee = 0;
-            let itemsTextList = '';
-
+            let goodsPrice = 0, handlingFee = 0, itemsTextList = '';
             Object.keys(cart).forEach((id, index) => {
                 const p = products.find(prod => prod.id === id);
                 const q = cart[id];
                 goodsPrice += p.price * q;
                 handlingFee += p.handling * q;
-                itemsTextList += `${index + 1}. ${p.name} x ${q} ชิ้น (${(p.price + p.handling) * q} บ.)\n`;
+                itemsTextList += `${index + 1}. ${p.name} x ${q} ชิ้น\n`;
             });
 
             const currentShippingFee = isShippingSelected ? SHIPPING_FEE : 0;
             const grandTotal = goodsPrice + handlingFee + currentShippingFee;
             currentGeneratedOrderId = 'DM2026-' + Math.floor(1000 + Math.random() * 9000);
-            const shippingTypeText = isShippingSelected ? 'จัดส่งพัสดุ (45 บาท)' : 'รับสินค้าเองที่บูธ (0 บาท)';
-            const social = document.getElementById('cust-social').value || '-';
-
             document.getElementById('modal-order-id').innerText = `หมายเลขคำสั่งซื้อ: ${currentGeneratedOrderId}`;
 
-            const billHTML = `
-                <div class="space-y-1 text-xs">
-                    <p><strong>ชื่อ-นามสกุล:</strong> ${name}</p>
-                    <p><strong>Social (X/IG):</strong> ${social}</p>
-                    <p><strong>เบอร์โทร:</strong> ${phone}</p>
-                    <p><strong>รูปแบบการรับ:</strong> ${shippingTypeText}</p>
-                    <p><strong>ที่อยู่จัดส่ง:</strong> ${address}</p>
-                </div>
-                <div class="border-t border-dashed border-gray-300 my-2 pt-2">
-                    <p class="font-bold mb-1 text-xs text-brand-900">รายการสินค้า:</p>
-                    <pre class="whitespace-pre-wrap font-mono text-[11px] text-gray-700 leading-relaxed">${itemsTextList}</pre>
-                </div>
-                <div class="border-t border-dashed border-gray-300 pt-2 space-y-1 text-xs">
-                    <div class="flex justify-between"><span>ราคาสินค้า:</span> <span>${goodsPrice} THB</span></div>
-                    <div class="flex justify-between"><span>ค่าหิ้วรวม:</span> <span>${handlingFee} THB</span></div>
-                    <div class="flex justify-between"><span>ค่าจัดส่ง:</span> <span>${currentShippingFee} THB</span></div>
-                    <div class="flex justify-between font-bold text-brand-650 text-sm pt-1 border-t border-gray-200"><span>ยอดชำระสุทธิ:</span> <span>${grandTotal} THB</span></div>
-                </div>
-                <div class="mt-3 pt-2 border-t border-dashed border-gray-300 flex items-center justify-between">
-                    <span class="text-[11px] text-emerald-700 font-bold">✓ แนบสลิปโอนเงินแล้ว (KBANK 0991512365)</span>
-                    <img src="${slipDataUrl}" alt="Slip thumbnail" class="w-10 h-10 object-cover rounded border">
-                </div>
+            document.getElementById('bill-content-preview').innerHTML = `
+                <p><strong>ชื่อ:</strong> ${name}</p>
+                <p><strong>โทร:</strong> ${phone}</p>
+                <p><strong>ที่อยู่:</strong> ${address}</p>
+                <pre class="font-mono text-[11px] mt-2">${itemsTextList}</pre>
+                <p class="font-bold mt-2">ยอดรวมสุทธิ: ${grandTotal} THB</p>
             `;
-
-            document.getElementById('bill-content-preview').innerHTML = billHTML;
             document.getElementById('bill-modal').classList.remove('hidden');
         }
 
-        function closeBillModal() {
-            document.getElementById('bill-modal').classList.add('hidden');
-        }
-
+        function closeBillModal() { document.getElementById('bill-modal').classList.add('hidden'); }
         function downloadBillImage() {
-            const billArea = document.getElementById('bill-printable-area');
-            html2canvas(billArea, { scale: 2 }).then(canvas => {
-                const link = document.createElement('a');
-                link.download = `Bill_${currentGeneratedOrderId}.png`;
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-            }).catch(err => {
-                console.error("Failed to download bill", err);
-                window.alert('ไม่สามารถดาวน์โหลดรูปภาพบิลได้ กรุณาลองใหม่อีกครั้ง');
+            html2canvas(document.getElementById('bill-printable-area'), { scale: 2 }).then(canvas => {
+                const link = document.createElement('a'); link.download = `Bill_${currentGeneratedOrderId}.png`; link.href = canvas.toDataURL(); link.click();
             });
         }
 
-        function confirmOrderAndFinalize() {
-            const orderId = currentGeneratedOrderId;
+        async function confirmOrderAndFinalize() {
+            const btn = document.getElementById('confirm-order-btn');
+            btn.innerText = "กำลังบันทึกออเดอร์...";
+            btn.disabled = true;
+
             const name = document.getElementById('cust-name').value;
-            const social = document.getElementById('cust-social').value || '-';
             const phone = document.getElementById('cust-phone').value;
             const address = document.getElementById('cust-address').value;
+            const social = document.getElementById('cust-social').value || '-';
+            const shipping = isShippingSelected ? 'จัดส่งพัสดุ' : 'รับที่บูธ';
 
-            let goodsPrice = 0;
-            let handlingFee = 0;
-            let orderedItemsSnapshot = {};
-            let itemsTextList = '';
-
+            let goodsPrice = 0, handlingFee = 0, itemsTextList = '';
             Object.keys(cart).forEach(id => {
                 const p = products.find(prod => prod.id === id);
                 const q = cart[id];
                 goodsPrice += p.price * q;
                 handlingFee += p.handling * q;
-                itemsTextList += `- ${p.name} x ${q} (${(p.price + p.handling) * q}บ.)\n`;
-                orderedItemsSnapshot[id] = q;
-
+                itemsTextList += `${p.name} x${q}, `;
                 p.stock = Math.max(0, p.stock - q);
-                totalOrderedStats[id] = (totalOrderedStats[id] || 0) + q;
             });
+            saveStock();
 
-            const currentShippingFee = isShippingSelected ? SHIPPING_FEE : 0;
-            const grandTotal = goodsPrice + handlingFee + currentShippingFee;
-            
-            // Save order into history
-            ordersHistory.unshift({
-                id: orderId,
+            const grandTotal = goodsPrice + handlingFee + (isShippingSelected ? SHIPPING_FEE : 0);
+
+            // ส่งข้อมูลขึ้น Google Sheets
+            const payload = {
+                orderId: currentGeneratedOrderId,
                 name: name,
-                phone: phone,
                 social: social,
+                phone: phone,
+                shipping: shipping,
                 address: address,
-                shipping: isShippingSelected ? 'จัดส่งพัสดุ' : 'รับที่บูธ',
-                items: orderedItemsSnapshot,
+                items: itemsTextList,
                 total: grandTotal,
-                slip: slipDataUrl,
-                date: new Date().toLocaleDateString('th-TH') + ' ' + new Date().toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' })
-            });
+                slip: slipDataUrl
+            };
 
-            savePersistentData();
-
-            const shippingTypeText = isShippingSelected ? 'จัดส่งพัสดุ (+45 บ.)' : 'รับเองที่บูธ (ฟรี)';
-            const lineMessage = `📌 [แจ้งสั่งซื้อสินค้า DOMUNDI POP-UP BOOTH - ${orderId}]\n` +
-                `-----------------------------------\n` +
-                `👤 ชื่อ: ${name}\n` +
-                `📱 Social: ${social}\n` +
-                `📞 โทร: ${phone}\n` +
-                `🚚 รูปแบบ: ${shippingTypeText}\n` +
-                `📍 ที่อยู่: ${address}\n` +
-                `-----------------------------------\n` +
-                `🛒 รายการสินค้า:\n${itemsTextList}` +
-                `-----------------------------------\n` +
-                `💵 ราคาสินค้า: ${goodsPrice} บาท\n` +
-                `🎒 ค่าหิ้วรวม: ${handlingFee} บาท\n` +
-                `📦 ค่าส่ง: ${currentShippingFee} บาท\n` +
-                `💰 ยอดรวมทั้งสิ้น: ${grandTotal} บาท\n` +
-                `✅ โอนเงินชำระแล้ว (กสิกร: 099-1-51236-5 รัตนมณี แสงเมล์ - แนบรูปสลิปในแชทนี้ได้เลย)\n` +
-                `-----------------------------------`;
-
-            const textArea = document.createElement("textarea");
-            textArea.value = lineMessage;
-            document.body.appendChild(textArea);
-            textArea.select();
             try {
-                document.execCommand('copy');
-                window.alert('บันทึกออเดอร์ ' + orderId + ' และคัดลอกข้อความบิลเรียบร้อย!\nระบบกำลังพาท่านไปที่ LINE ของร้าน (https://lin.ee/OKHl9Bs) กรุณาวางข้อความและส่งรูปสลิปให้ร้านได้เลยครับ');
-            } catch (err) {
-                console.error('Failed to copy text', err);
-            }
-            document.body.removeChild(textArea);
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } catch (err) { console.error(err); }
 
-            cart = {};
-            slipDataUrl = '';
+            window.alert('บันทึกออเดอร์สำเร็จ! กำลังไปที่ LINE ร้าน');
+            cart = {}; slipDataUrl = '';
             document.getElementById('order-form').reset();
-            document.getElementById('slip-preview-container').classList.add('hidden');
-
-            const selectedCountElem = document.getElementById('selected-count');
-            if (selectedCountElem) selectedCountElem.innerText = '0';
-            
-            renderProducts(currentFilter);
-            renderCartSummary();
             closeBillModal();
-
-            // Redirect directly to LINE Add Friend Link
             window.location.href = "https://lin.ee/OKHl9Bs";
         }
 
         function renderAdminInventory() {
             const container = document.getElementById('admin-inventory-list');
-            if (!container) return;
             container.innerHTML = '';
-
             products.forEach(p => {
-                const row = document.createElement('div');
-                row.className = "flex items-center justify-between bg-amber-50/50 p-3 rounded-xl border border-brand-100 text-xs";
-                row.innerHTML = `
-                    <div class="flex-1 pr-3">
-                        <p class="font-bold text-brand-900">${p.name}</p>
-                        <p class="text-[10px] text-gray-500">หมวด: ${p.category} | ราคา: ${p.price} บ. | ค่าหิ้ว: +${p.handling}</p>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-gray-600 font-medium">คงเหลือ:</span>
-                        <input type="number" min="0" value="${p.stock}" onchange="updateStock('${p.id}', this.value)" class="w-20 px-3 py-1.5 rounded-lg border border-gray-300 text-center font-bold text-brand-900 bg-white shadow-sm focus:ring-2 focus:ring-brand-500">
-                    </div>
-                `;
-                container.appendChild(row);
+                container.innerHTML += `<div class="flex justify-between items-center bg-amber-50 p-2 rounded-xl text-xs"><span>${p.name}</span><input type="number" value="${p.stock}" onchange="products.find(x=>x.id=='${p.id}').stock=this.value;saveStock()" class="w-16 text-center border rounded"></div>`;
             });
         }
 
-        function updateStock(id, newStock) {
-            const product = products.find(p => p.id === id);
-            if (product) {
-                product.stock = parseInt(newStock) || 0;
-                savePersistentData();
-            }
-        }
-
-        function renderOrdersHistory() {
-            const container = document.getElementById('admin-orders-history-list');
-            if (!container) return;
-            container.innerHTML = '';
-
-            if (ordersHistory.length === 0) {
-                container.innerHTML = '<p class="text-gray-400 text-center py-6 italic bg-white rounded-xl border border-dashed border-gray-200">ยังไม่มีประวัติบิลออเดอร์ในระบบ</p>';
-                return;
-            }
-
-            ordersHistory.forEach((order, index) => {
-                const card = document.createElement('div');
-                card.className = "bg-white p-3.5 rounded-2xl border border-brand-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 shadow-sm";
-                
-                let itemsSummary = '';
-                Object.keys(order.items).forEach(prodId => {
-                    const prod = products.find(p => p.id === prodId);
-                    if (prod) {
-                        itemsSummary += `${prod.name.substring(0, 30)}... x${order.items[prodId]}<br>`;
-                    }
+        async function fetchOnlineOrders() {
+            const container = document.getElementById('online-orders-list');
+            container.innerHTML = '<p class="text-center py-4">กำลังดึงข้อมูลจาก Google Sheets...</p>';
+            try {
+                const res = await fetch(SCRIPT_URL);
+                const data = await res.json();
+                container.innerHTML = '';
+                if(data.length === 0) { container.innerHTML = '<p class="text-center text-gray-400">ยังไม่มีออเดอร์ออนไลน์</p>'; return; }
+                data.forEach(row => {
+                    container.innerHTML += `<div class="bg-white p-3 rounded-xl border flex justify-between items-center"><div><strong>${row[0]}</strong> - คุณ ${row[2]} (${row[4]})<br>ยอด: ${row[8]} THB</div><button onclick="inspectSlip('${row[9]}')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">ดูสลิป</button></div>`;
                 });
-
-                card.innerHTML = `
-                    <div class="flex-1">
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="font-bold text-brand-900">${order.id}</span>
-                            <span class="text-[10px] bg-brand-100 text-brand-800 px-2 py-0.5 rounded font-semibold">${order.date}</span>
-                            <span class="text-[10px] bg-green-100 text-green-800 px-2 py-0.5 rounded font-semibold">${order.shipping}</span>
-                        </div>
-                        <p class="font-bold text-gray-800">คุณ ${order.name} (โทร: ${order.phone})</p>
-                        <p class="text-[11px] text-gray-500 leading-tight mt-1">${itemsSummary}</p>
-                        <p class="font-bold text-brand-650 mt-1">ยอดรวมสุทธิ: ${order.total} THB</p>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        ${order.slip ? `<button type="button" onclick="inspectSlip('${order.slip}')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow transition-all flex items-center gap-1 cursor-pointer"><i class="fa-solid fa-eye"></i> ดูสลิป</button>` : ''}
-                        <button type="button" onclick="deleteOrder(${index})" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow transition-all flex items-center gap-1 cursor-pointer">
-                            <i class="fa-solid fa-trash"></i> ลบ
-                        </button>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
+            } catch (err) {
+                container.innerHTML = '<p class="text-center text-red-500">เชื่อมต่อ Google Sheets สำเร็จ กรุณากดส่งออเดอร์ทดสอบ 1 บิลเพื่อสร้างตาราง</p>';
+            }
         }
 
-        function inspectSlip(slipUrl) {
-            document.getElementById('admin-inspect-slip-img').src = slipUrl;
+        function inspectSlip(url) {
+            document.getElementById('admin-inspect-slip-img').src = url;
             document.getElementById('slip-modal').classList.remove('hidden');
         }
-
-        function closeSlipModal() {
-            document.getElementById('slip-modal').classList.add('hidden');
-        }
-
-        function deleteOrder(index) {
-            if (window.confirm('คุณต้องการลบออเดอร์นี้ใช่หรือไม่? (ระบบจะทำการคืนสต็อกสินค้ากลับสู่คลังอัตโนมัติ)')) {
-                const order = ordersHistory[index];
-                Object.keys(order.items).forEach(prodId => {
-                    const prod = products.find(p => p.id === prodId);
-                    const qty = order.items[prodId];
-                    if (prod) {
-                        prod.stock += qty;
-                    }
-                    if (totalOrderedStats[prodId]) {
-                        totalOrderedStats[prodId] = Math.max(0, totalOrderedStats[prodId] - qty);
-                    }
-                });
-
-                ordersHistory.splice(index, 1);
-                savePersistentData();
-                renderOrdersHistory();
-                renderAdminSummary();
-                renderAdminInventory();
-                window.alert('ลบออเดอร์และคืนสต็อกสินค้าเรียบร้อยแล้วค่ะ');
-            }
-        }
-
-        function exportOrdersJSON() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(ordersHistory));
-            const downloadAnchor = document.createElement('a');
-            downloadAnchor.setAttribute("href", dataStr);
-            downloadAnchor.setAttribute("download", `Domundi_Orders_Backup_${new Date().toISOString().slice(0,10)}.json`);
-            document.body.appendChild(downloadAnchor);
-            downloadAnchor.click();
-            downloadAnchor.remove();
-        }
-
-        function renderAdminSummary() {
-            const container = document.getElementById('admin-summary-list');
-            const dateContainer = document.getElementById('report-date-time');
-            if (!container) return;
-            container.innerHTML = '';
-
-            const now = new Date();
-            dateContainer.innerText = `ข้อมูลยอดขายสะสม ณ วันที่ ${now.toLocaleDateString('th-TH')} เวลา ${now.toLocaleTimeString('th-TH')} น.`;
-
-            let hasOrderedItems = false;
-            products.forEach(p => {
-                const orderedCount = totalOrderedStats[p.id] || 0;
-                if (orderedCount > 0) {
-                    hasOrderedItems = true;
-                    const itemRow = document.createElement('div');
-                    itemRow.className = "flex justify-between items-center bg-white p-3 rounded-xl border border-brand-100 shadow-sm";
-                    itemRow.innerHTML = `
-                        <div>
-                            <p class="font-bold text-brand-900">${p.name}</p>
-                            <p class="text-[10px] text-gray-500">ราคา: ${p.price} บาท | ค่าหิ้ว: +${p.handling}</p>
-                        </div>
-                        <div class="text-right">
-                            <span class="bg-brand-100 text-brand-900 font-extrabold px-3 py-1 rounded-lg text-xs">${orderedCount} ชิ้น</span>
-                        </div>
-                    `;
-                    container.appendChild(itemRow);
-                }
-            });
-
-            if (!hasOrderedItems) {
-                container.innerHTML = '<p class="text-gray-400 text-center py-4 italic bg-white rounded-xl border border-dashed border-gray-200">ยังไม่มีรายการสั่งซื้อสะสมในระบบ</p>';
-            }
-        }
-
-        function exportSummaryAsImage() {
-            const exportElement = document.getElementById('summary-export-container');
-            if (!exportElement) return;
-
-            html2canvas(exportElement, { scale: 2 }).then(canvas => {
-                const link = document.createElement('a');
-                link.download = `Domundi_Order_Summary_${new Date().toISOString().slice(0,10)}.png`;
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-            }).catch(err => {
-                console.error('Failed to export image', err);
-                window.alert('ไม่สามารถบันทึกรูปภาพได้ กรุณาลองใหม่อีกครั้ง');
-            });
-        }
+        function closeSlipModal() { document.getElementById('slip-modal').classList.add('hidden'); }
     </script>
 </body>
 </html>
