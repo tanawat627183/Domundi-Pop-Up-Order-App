@@ -248,7 +248,7 @@
                     <i class="fa-solid fa-download"></i> บันทึกภาพบิล (Save Bill)
                 </button>
                 <button type="button" onclick="confirmOrderAndFinalize()" class="flex-1 bg-[#06C755] hover:bg-[#05b34c] text-white font-bold py-3 px-4 rounded-xl shadow-lg transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer">
-                    <i class="fa-solid fa-check"></i> ส่งออเดอร์ให้ร้าน
+                    <i class="fa-brands fa-line text-base"></i> ส่งออเดอร์ให้ร้าน (เข้า LINE)
                 </button>
             </div>
         </div>
@@ -259,7 +259,7 @@
         <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-2xl border border-amber-300">
             <div class="flex justify-between items-center pb-3 border-b border-brand-100 mb-4">
                 <h3 class="font-bold text-lg text-brand-900 flex items-center gap-2">
-                    <i class="fa-solid fa-warehouse text-amber-600"></i> หลังบ้าน: จัดการสต็อก & ดูบิลออเดอร์ลูกค้า
+                    <i class="fa-solid fa-warehouse text-amber-600"></i> หลังบ้าน: จัดการสต็อก & สรุปรายการสินค้า
                 </h3>
                 <button type="button" onclick="closeAdminModal()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold px-2 cursor-pointer">&times;</button>
             </div>
@@ -267,7 +267,7 @@
             <!-- Tabs inside Backoffice -->
             <div class="flex gap-2 mb-5 border-b border-gray-200 pb-3">
                 <button type="button" onclick="switchAdminTab('stock')" id="tab-btn-stock" class="px-4 py-2 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer">จัดการสต็อกสินค้าคงเหลือ</button>
-                <button type="button" onclick="switchAdminTab('summary')" id="tab-btn-summary" class="px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer">บิลออเดอร์ & สรุปยอดขาย</button>
+                <button type="button" onclick="switchAdminTab('summary')" id="tab-btn-summary" class="px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer">สรุปยอดขายรวม</button>
             </div>
 
             <!-- Tab 1: Stock Management -->
@@ -278,10 +278,10 @@
                 </div>
             </div>
 
-            <!-- Tab 2: Orders Summary & Bill Viewer -->
+            <!-- Tab 2: Orders Summary Report -->
             <div id="admin-tab-summary" class="space-y-4 hidden">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-3">
-                    <p class="text-xs text-gray-500">คลิกดูบิลรายละเอียด ตรวจสอบสลิป หรือลบออเดอร์เพื่อคืนสต็อกได้ทันที</p>
+                    <p class="text-xs text-gray-500">รายงานยอดสั่งซื้อสะสมจากลูกค้าในเครื่องนี้ (กดบันทึกภาพเพื่อแชร์สรุปยอดได้)</p>
                     <button type="button" onclick="exportSummaryAsImage()" class="bg-brand-650 hover:bg-brand-800 text-white font-bold px-4 py-2 rounded-xl text-xs shadow transition-all flex items-center gap-1.5 cursor-pointer">
                         <i class="fa-solid fa-camera"></i> บันทึกรูปภาพรายงานสรุปยอด
                     </button>
@@ -295,14 +295,7 @@
                     
                     <div>
                         <h5 class="font-bold text-brand-800 text-xs mb-2">ยอดรวมแยกตามสินค้า:</h5>
-                        <div id="admin-summary-list" class="space-y-2 max-h-[160px] overflow-y-auto pr-2 custom-scrollbar text-xs">
-                            <!-- Populated dynamically -->
-                        </div>
-                    </div>
-
-                    <div class="border-t border-brand-200 pt-3">
-                        <h5 class="font-bold text-brand-800 text-xs mb-2">ประวัติบิลคำสั่งซื้อทั้งหมด (คลิกดูบิล / ตรวจสลิป / ลบ):</h5>
-                        <div id="admin-orders-history-list" class="space-y-2 max-h-[220px] overflow-y-auto pr-2 custom-scrollbar text-xs">
+                        <div id="admin-summary-list" class="space-y-2 max-h-[220px] overflow-y-auto pr-2 custom-scrollbar text-xs">
                             <!-- Populated dynamically -->
                         </div>
                     </div>
@@ -317,21 +310,9 @@
         </div>
     </div>
 
-    <!-- Slip Inspector Modal for Admin -->
-    <div id="slip-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl text-center relative">
-            <button type="button" onclick="closeSlipModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold cursor-pointer">&times;</button>
-            <h3 class="font-bold text-base text-brand-900 mb-3"><i class="fa-solid fa-receipt text-brand-500"></i> หลักฐานสลิปโอนเงิน</h3>
-            <div class="bg-gray-100 p-2 rounded-2xl max-h-[70vh] overflow-y-auto flex items-center justify-center">
-                <img id="admin-inspect-slip-img" src="" alt="Customer Slip" class="max-w-full rounded-xl object-contain shadow">
-            </div>
-            <button type="button" onclick="closeSlipModal()" class="mt-4 bg-brand-500 hover:bg-brand-650 text-white font-bold px-6 py-2 rounded-xl text-xs shadow transition-all cursor-pointer">ปิดหน้าต่าง</button>
-        </div>
-    </div>
-
     <footer class="bg-brand-900 text-amber-200/70 text-center py-6 text-xs mt-12 border-t border-brand-800">
         <p>© 2026 DOMUNDI POP-UP BOOTH ORDER SYSTEM. All rights reserved.</p>
-        <p class="mt-1">Standalone Local & Cloud-free Instant Architecture.</p>
+        <p class="mt-1">Direct LINE Order Routing Architecture.</p>
     </footer>
 
     <script>
@@ -382,7 +363,6 @@
 
         let cart = {}; 
         let totalOrderedStats = {}; 
-        let ordersHistory = []; 
         let slipDataUrl = '';
         let isShippingSelected = true;
         let currentFilter = 'all';
@@ -400,7 +380,6 @@
             try {
                 const savedProducts = localStorage.getItem('domundi_products');
                 const savedStats = localStorage.getItem('domundi_stats');
-                const savedHistory = localStorage.getItem('domundi_history');
 
                 if (savedProducts) {
                     const parsed = JSON.parse(savedProducts);
@@ -410,7 +389,6 @@
                     });
                 }
                 if (savedStats) totalOrderedStats = JSON.parse(savedStats);
-                if (savedHistory) ordersHistory = JSON.parse(savedHistory);
             } catch (e) {
                 console.error("Error loading localStorage", e);
             }
@@ -420,7 +398,6 @@
             try {
                 localStorage.setItem('domundi_products', JSON.stringify(products));
                 localStorage.setItem('domundi_stats', JSON.stringify(totalOrderedStats));
-                localStorage.setItem('domundi_history', JSON.stringify(ordersHistory));
             } catch (e) {
                 console.error("Error saving localStorage", e);
             }
@@ -429,7 +406,6 @@
         function openAdminDirect() {
             renderAdminInventory();
             renderAdminSummary();
-            renderOrdersHistory();
             document.getElementById('admin-modal').classList.remove('hidden');
         }
 
@@ -455,7 +431,6 @@
                 btnSummary.className = "px-4 py-2 rounded-xl bg-brand-500 text-white font-bold text-xs shadow transition-all cursor-pointer";
                 btnStock.className = "px-4 py-2 rounded-xl bg-brand-50 text-brand-800 font-bold text-xs transition-all cursor-pointer";
                 renderAdminSummary();
-                renderOrdersHistory();
             }
         }
 
@@ -733,14 +708,14 @@
 
             let goodsPrice = 0;
             let handlingFee = 0;
-            let orderedItemsSnapshot = {};
+            let itemsTextList = '';
 
             Object.keys(cart).forEach(id => {
                 const p = products.find(prod => prod.id === id);
                 const q = cart[id];
                 goodsPrice += p.price * q;
                 handlingFee += p.handling * q;
-                orderedItemsSnapshot[id] = q;
+                itemsTextList += `- ${p.name} x ${q} (${(p.price + p.handling) * q}บ.)\n`;
 
                 p.stock = Math.max(0, p.stock - q);
                 totalOrderedStats[id] = (totalOrderedStats[id] || 0) + q;
@@ -749,22 +724,40 @@
             const currentShippingFee = isShippingSelected ? SHIPPING_FEE : 0;
             const grandTotal = goodsPrice + handlingFee + currentShippingFee;
             
-            ordersHistory.push({
-                id: orderId,
-                name: name,
-                phone: phone,
-                social: social,
-                address: address,
-                shipping: isShippingSelected ? 'จัดส่งพัสดุ' : 'รับที่บูธ',
-                items: orderedItemsSnapshot,
-                total: grandTotal,
-                slip: slipDataUrl,
-                date: new Date().toLocaleDateString('th-TH') + ' ' + new Date().toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' })
-            });
-
             savePersistentData();
 
-            window.alert('ส่งออเดอร์ให้ร้านสำเร็จ! ระบบได้บันทึกคำสั่งซื้อและตัดสต็อกสินค้าเรียบร้อยแล้วค่ะ');
+            const shippingTypeText = isShippingSelected ? 'จัดส่งพัสดุ (+45 บ.)' : 'รับเองที่บูธ (ฟรี)';
+
+            // Formulate LINE message payload
+            const lineMessage = `📌 [แจ้งสั่งซื้อสินค้า DOMUNDI POP-UP BOOTH - ${orderId}]\n` +
+                `-----------------------------------\n` +
+                `👤 ชื่อ: ${name}\n` +
+                `📱 Social: ${social}\n` +
+                `📞 โทร: ${phone}\n` +
+                `🚚 รูปแบบ: ${shippingTypeText}\n` +
+                `📍 ที่อยู่: ${address}\n` +
+                `-----------------------------------\n` +
+                `🛒 รายการสินค้า:\n${itemsTextList}` +
+                `-----------------------------------\n` +
+                `💵 ราคาสินค้า: ${goodsPrice} บาท\n` +
+                `🎒 ค่าหิ้วรวม: ${handlingFee} บาท\n` +
+                `📦 ค่าส่ง: ${currentShippingFee} บาท\n` +
+                `💰 ยอดรวมทั้งสิ้น: ${grandTotal} บาท\n` +
+                `✅ โอนเงินชำระแล้ว (กสิกร: 099-1-51236-5 รัตนมณี แสงเมล์ - แนบรูปสลิปในแชทนี้ได้เลย)\n` +
+                `-----------------------------------`;
+
+            // Copy to clipboard & prompt
+            const textArea = document.createElement("textarea");
+            textArea.value = lineMessage;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                window.alert('คัดลอกรายละเอียดบิลเรียบร้อย! ระบบกำลังพาท่านไปที่ LINE ของร้าน (กรุณาวางข้อความส่งและแนบสลิปในแชทได้เลยครับ)');
+            } catch (err) {
+                console.error('Failed to copy text', err);
+            }
+            document.body.removeChild(textArea);
 
             cart = {};
             slipDataUrl = '';
@@ -777,6 +770,9 @@
             renderProducts(currentFilter);
             renderCartSummary();
             closeBillModal();
+
+            // Redirect directly to LINE OA
+            window.location.href = "https://lin.ee/r60tJWt";
         }
 
         function renderAdminInventory() {
@@ -816,7 +812,7 @@
             container.innerHTML = '';
 
             const now = new Date();
-            dateContainer.innerText = `ข้อมูล ณ วันที่ ${now.toLocaleDateString('th-TH')} เวลา ${now.toLocaleTimeString('th-TH')} น.`;
+            dateContainer.innerText = `ข้อมูลยอดขายสะสม ณ วันที่ ${now.toLocaleDateString('th-TH')} เวลา ${now.toLocaleTimeString('th-TH')} น.`;
 
             let hasOrderedItems = false;
             products.forEach(p => {
@@ -839,83 +835,7 @@
             });
 
             if (!hasOrderedItems) {
-                container.innerHTML = '<p class="text-gray-400 text-center py-4 italic bg-white rounded-xl border border-dashed border-gray-200">ยังไม่มีรายการสั่งซื้อที่ยืนยันผ่านระบบในขณะนี้</p>';
-            }
-        }
-
-        function renderOrdersHistory() {
-            const container = document.getElementById('admin-orders-history-list');
-            if (!container) return;
-            container.innerHTML = '';
-
-            if (ordersHistory.length === 0) {
-                container.innerHTML = '<p class="text-gray-400 text-center py-4 italic bg-white rounded-xl border border-dashed border-gray-200">ยังไม่มีประวัติคำสั่งซื้อในระบบ</p>';
-                return;
-            }
-
-            ordersHistory.forEach((order, index) => {
-                const orderCard = document.createElement('div');
-                orderCard.className = "bg-white p-3 rounded-xl border border-brand-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 shadow-sm";
-                
-                let itemsSummaryStr = '';
-                Object.keys(order.items).forEach(prodId => {
-                    const prod = products.find(p => p.id === prodId);
-                    if (prod) {
-                        itemsSummaryStr += `${prod.name.substring(0, 25)}... x${order.items[prodId]}<br>`;
-                    }
-                });
-
-                orderCard.innerHTML = `
-                    <div class="flex-1">
-                        <div class="flex items-center gap-2">
-                            <span class="font-bold text-brand-900">${order.id}</span>
-                            <span class="text-[10px] bg-brand-100 text-brand-800 px-2 py-0.5 rounded font-semibold">${order.date}</span>
-                        </div>
-                        <p class="text-gray-800 font-semibold mt-0.5">คุณ ${order.name} (${order.phone})</p>
-                        <p class="text-[11px] text-gray-500 leading-tight mt-1">${itemsSummaryStr}</p>
-                        <p class="text-brand-650 font-bold mt-1">ยอดรวม: ${order.total} THB (${order.shipping})</p>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        ${order.slip ? `<button type="button" onclick="inspectSlip('${order.slip}')" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow transition-all flex items-center gap-1 cursor-pointer"><i class="fa-solid fa-eye"></i> ดูสลิป</button>` : ''}
-                        <button type="button" onclick="deleteOrder(${index})" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow transition-all flex items-center gap-1 cursor-pointer">
-                            <i class="fa-solid fa-trash"></i> ลบออเดอร์
-                        </button>
-                    </div>
-                `;
-                container.appendChild(orderCard);
-            });
-        }
-
-        function inspectSlip(slipUrl) {
-            document.getElementById('admin-inspect-slip-img').src = slipUrl;
-            document.getElementById('slip-modal').classList.remove('hidden');
-        }
-
-        function closeSlipModal() {
-            document.getElementById('slip-modal').classList.add('hidden');
-        }
-
-        function deleteOrder(index) {
-            if (window.confirm('คุณต้องการลบออเดอร์นี้ใช่หรือไม่? (ระบบจะทำการคืนสต็อกสินค้ากลับสู่คลังอัตโนมัติ)')) {
-                const order = ordersHistory[index];
-                
-                Object.keys(order.items).forEach(prodId => {
-                    const prod = products.find(p => p.id === prodId);
-                    const qty = order.items[prodId];
-                    if (prod) {
-                        prod.stock += qty;
-                    }
-                    if (totalOrderedStats[prodId]) {
-                        totalOrderedStats[prodId] = Math.max(0, totalOrderedStats[prodId] - qty);
-                    }
-                });
-
-                ordersHistory.splice(index, 1);
-                savePersistentData();
-                renderAdminSummary();
-                renderOrdersHistory();
-                renderAdminInventory();
-                window.alert('ลบออเดอร์และคืนสต็อกสินค้าเรียบร้อยแล้วค่ะ');
+                container.innerHTML = '<p class="text-gray-400 text-center py-4 italic bg-white rounded-xl border border-dashed border-gray-200">ยังไม่มีรายการสั่งซื้อสะสมในเครื่องนี้</p>';
             }
         }
 
