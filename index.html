@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- html2canvas for exporting summary as image -->
+    <!-- html2canvas for exporting summary/bill as image -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         tailwind.config = {
@@ -51,7 +51,7 @@
             <p class="text-xs md:text-sm text-amber-200 mt-2 font-light tracking-wide">AT ICONIC CRAFT COFFEE EXPO 2026 (16 - 20 SEPT 2026 • ICONSIAM HALL, 7TH FLOOR)</p>
             
             <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
-                <!-- Hidden Admin trigger built into the handling fee badge -->
+                <!-- Backoffice trigger built into the handling fee badge -->
                 <div onclick="openAdminDirect()" title="คลิกเพื่อจัดการสต็อกและดูสรุปออเดอร์" class="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-5 py-2 rounded-full text-xs text-amber-300 border border-amber-500/30 shadow-inner cursor-pointer hover:bg-black/60 transition-all select-none">
                     <span><i class="fa-solid fa-truck-fast mr-1"></i> ค่าหิ้ว: ทั่วไป +60 บาท | เสื้อ +80 บาท (คลิกจัดการหลังบ้าน)</span>
                 </div>
@@ -315,7 +315,7 @@
                 <button type="button" onclick="exportReceiptAsImage()" class="flex-1 bg-brand-650 hover:bg-brand-800 text-white font-bold py-3 px-4 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-2 cursor-pointer">
                     <i class="fa-solid fa-download"></i> บันทึกภาพบิล (Save Image)
                 </button>
-                <button type="button" onclick="confirmOrderAndSave()" class="flex-1 bg-[#06C755] hover:bg-[#05b34c] text-white font-bold py-3 px-4 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-2 cursor-pointer">
+                <button type="button" onclick="confirmOrderAndSave()" class="flex-1 bg-brand-500 hover:bg-brand-650 text-white font-bold py-3 px-4 rounded-xl shadow transition-all text-xs flex items-center justify-center gap-2 cursor-pointer">
                     <i class="fa-solid fa-check-circle"></i> ส่งออเดอร์ให้ร้าน
                 </button>
             </div>
@@ -486,6 +486,19 @@
             loadSavedData();
             renderProducts(currentFilter);
             renderCartSummary();
+            
+            // Listen to storage changes across tabs/sessions
+            window.addEventListener('storage', (e) => {
+                if (e.key && e.key.startsWith('domundi_')) {
+                    loadSavedData();
+                    if (!document.getElementById('admin-modal').classList.contains('hidden')) {
+                        renderAdminInventory();
+                        renderAdminSummary();
+                        renderOrdersHistory();
+                    }
+                    renderProducts(currentFilter);
+                }
+            });
         });
 
         function loadSavedData() {
@@ -520,6 +533,7 @@
 
         // Direct Admin Trigger when clicking the handling fee badge at the top
         function openAdminDirect() {
+            loadSavedData();
             renderAdminInventory();
             renderAdminSummary();
             renderOrdersHistory();
@@ -532,6 +546,7 @@
         }
 
         function switchAdminTab(tab) {
+            loadSavedData();
             const stockTab = document.getElementById('admin-tab-stock');
             const summaryTab = document.getElementById('admin-tab-summary');
             const btnStock = document.getElementById('tab-btn-stock');
@@ -564,6 +579,7 @@
         }
 
         function renderProducts(category) {
+            loadSavedData();
             const grid = document.getElementById('product-grid');
             if (!grid) return;
             grid.innerHTML = '';
@@ -829,10 +845,13 @@
         }
 
         function confirmOrderAndSave() {
+            loadSavedData();
             const orderId = document.getElementById('receipt-order-id').innerText.replace('วันที่ออกใบเสร็จ: ', '').trim();
             const name = document.getElementById('rec-name').innerText;
+            const social = document.getElementById('rec-social').innerText;
             const phone = document.getElementById('rec-phone').innerText;
             const address = document.getElementById('rec-address').innerText;
+            const shippingType = document.getElementById('rec-shipping-type').innerText;
             const grandTotalText = document.getElementById('rec-grand-total').innerText;
             const grandTotalNum = parseInt(grandTotalText) || 0;
 
@@ -848,8 +867,10 @@
             ordersHistory.push({
                 id: orderId,
                 name: name,
+                social: social,
                 phone: phone,
                 address: address,
+                shipping: shippingType,
                 items: orderedItemsSnapshot,
                 total: grandTotalNum,
                 slip: slipDataUrl,
@@ -858,7 +879,7 @@
 
             savePersistentData();
 
-            window.alert('บันทึกคำสั่งซื้อ "ส่งออเดอร์ให้ร้าน" เรียบร้อยแล้ว! สต็อกถูกตัดอัตโนมัติ\n\n⚠️ หมายเหตุ: กรุณาส่งบิลสั่งซื้อให้ร้านในไลน์ หรือใส่ข้อมูลติดต่อให้ร้านทักหา');
+            window.alert('ส่งออเดอร์ให้ร้านเรียบร้อยแล้ว! บันทึกคำสั่งซื้อและตัดสต็อกในระบบหลังบ้านสำเร็จ\n\n⚠️ หมายเหตุ: กรุณาส่งบิลสั่งซื้อให้ร้านในไลน์ หรือใส่ข้อมูลติดต่อให้ร้านทักหา');
 
             cart = {};
             slipDataUrl = '';
@@ -873,6 +894,7 @@
         }
 
         function renderAdminInventory() {
+            loadSavedData();
             const container = document.getElementById('admin-inventory-list');
             if (!container) return;
             container.innerHTML = '';
@@ -903,6 +925,7 @@
         }
 
         function renderAdminSummary() {
+            loadSavedData();
             const container = document.getElementById('admin-summary-list');
             const dateContainer = document.getElementById('report-date-time');
             if (!container) return;
@@ -937,6 +960,7 @@
         }
 
         function renderOrdersHistory() {
+            loadSavedData();
             const container = document.getElementById('admin-orders-history-list');
             if (!container) return;
             container.innerHTML = '';
@@ -983,6 +1007,7 @@
 
         let currentViewingBillIndex = null;
         function viewAdminBill(index) {
+            loadSavedData();
             currentViewingBillIndex = index;
             const order = ordersHistory[index];
             const contentContainer = document.getElementById('admin-bill-detail-content');
@@ -1013,6 +1038,7 @@
                     </div>
                     <div>
                         <p><strong>ชื่อ-นามสกุล:</strong> ${order.name}</p>
+                        <p><strong>Social:</strong> ${order.social || '-'}</p>
                         <p><strong>เบอร์โทร:</strong> ${order.phone}</p>
                         <p><strong>ที่อยู่จัดส่ง:</strong> ${order.address}</p>
                     </div>
@@ -1061,6 +1087,7 @@
 
         function deleteOrder(index) {
             if (window.confirm('คุณต้องการลบออเดอร์นี้ใช่หรือไม่? (ระบบจะทำการคืนสต็อกสินค้ากลับสู่คลังอัตโนมัติ)')) {
+                loadSavedData();
                 const order = ordersHistory[index];
                 
                 Object.keys(order.items).forEach(prodId => {
