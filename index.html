@@ -36,12 +36,12 @@
         <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#b87333_1px,transparent_1px)] [background-size:16px_16px]"></div>
         <div class="max-w-5xl mx-auto relative z-10">
             <span class="bg-brand-500 text-white text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-widest shadow-md mb-3 inline-block">Official Pop-Up Pre-Order 2026</span>
-            <h1 class="text-3xl md:text-5xl font-extrabold tracking-wider text-amber-100 drop-shadow">DOMUNDI POP-UP BOOTH @GRAPESHOP </h1>
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-wider text-amber-100 drop-shadow">DOMUNDI POP-UP BOOTH</h1>
             <p class="text-xs md:text-sm text-amber-200 mt-2 font-light tracking-wide">AT ICONIC CRAFT COFFEE EXPO 2026 (16 - 20 SEPT 2026 • ICONSIAM HALL, 7TH FLOOR)</p>
             
             <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
                 <div onclick="openAdminDirect()" title="เปิดหลังบ้านออนไลน์" class="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-5 py-2 rounded-full text-xs text-amber-300 border border-amber-500/30 shadow-inner cursor-pointer hover:bg-black/60 transition-all select-none">
-                    <span><i class="fa-solid fa-warehouse mr-1"></i> ค่าหิ้ว: ทั่วไป +60 บาท | เสื้อ +80 บาท (คลิกเปิดหลังบ้านรวมบิลออนไลน์)</span>
+                    <span><i class="fa-solid fa-warehouse mr-1"></i> ค่าหิ้ว: ทั่วไป +60 บาท | เสื้อ +80 บาท (คลิกเปิดหลังบ้านออนไลน์)</span>
                 </div>
                 <a href="https://lin.ee/OKHl9Bs" target="_blank" class="inline-flex items-center gap-2 bg-[#06C755] hover:bg-[#05b34c] text-white px-4 py-2 rounded-full text-xs font-bold shadow-md transition-all">
                     <i class="fa-brands fa-line text-sm"></i> เพิ่มเพื่อนทางไลน์ร้าน
@@ -192,6 +192,20 @@
         </section>
     </main>
 
+    <!-- Hidden Invisible Form for CORS-free submission to Google Sheets -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+    <form id="sheets-form" action="YOUR_GOOGLE_APPS_SCRIPT_URL_HERE" method="POST" target="hidden_iframe" style="display:none;">
+        <input type="hidden" name="orderId" id="f-orderId">
+        <input type="hidden" name="name" id="f-name">
+        <input type="hidden" name="social" id="f-social">
+        <input type="hidden" name="phone" id="f-phone">
+        <input type="hidden" name="shipping" id="f-shipping">
+        <input type="hidden" name="address" id="f-address">
+        <input type="hidden" name="items" id="f-items">
+        <input type="hidden" name="total" id="f-total">
+        <input type="hidden" name="slip" id="f-slip">
+    </form>
+
     <!-- Bill Modal -->
     <div id="bill-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-2xl border border-brand-200">
@@ -265,7 +279,7 @@
             </div>
 
             <div class="flex justify-end pt-4 border-t border-brand-100 mt-4">
-                <button type="button" onclick="closeAdminModal()" class="bg-brand-500 hover:bg-brand-650 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition-all shadow-md cursor-pointer">
+                <button type="button" onclick="closeAdminModal()" class="bg-brand-500 hover:bg-brand-650 text-white font-bold px-6 py-2.5 rounded-xl text-xs shadow-md cursor-pointer">
                     ปิดหน้าต่าง
                 </button>
             </div>
@@ -285,7 +299,7 @@
     </div>
 
     <script>
-        // ใส่ URL ที่ได้จาก Google Apps Script Web App ตรงนี้ครับ
+        // ใส่ Web App URL ของ Google Apps Script ที่นี่
         const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
         let products = [
@@ -345,6 +359,7 @@
             loadSavedStock();
             renderProducts(currentFilter);
             renderCartSummary();
+            document.getElementById('sheets-form').action = SCRIPT_URL;
         });
 
         function loadSavedStock() {
@@ -531,7 +546,7 @@
                 const q = cart[id];
                 goodsPrice += p.price * q;
                 handlingFee += p.handling * q;
-                itemsTextList += `${index + 1}. ${p.name} x ${q} ชิ้น\n`;
+                itemsTextList += `${index + 1}. ${p.name} x ${q} ชิ้น (${(p.price + p.handling) * q} บ.)\n`;
             });
 
             const currentShippingFee = isShippingSelected ? SHIPPING_FEE : 0;
@@ -556,11 +571,7 @@
             });
         }
 
-        async function confirmOrderAndFinalize() {
-            const btn = document.getElementById('confirm-order-btn');
-            btn.innerText = "กำลังบันทึกออเดอร์...";
-            btn.disabled = true;
-
+        function confirmOrderAndFinalize() {
             const name = document.getElementById('cust-name').value;
             const phone = document.getElementById('cust-phone').value;
             const address = document.getElementById('cust-address').value;
@@ -580,29 +591,20 @@
 
             const grandTotal = goodsPrice + handlingFee + (isShippingSelected ? SHIPPING_FEE : 0);
 
-            // ส่งข้อมูลขึ้น Google Sheets
-            const payload = {
-                orderId: currentGeneratedOrderId,
-                name: name,
-                social: social,
-                phone: phone,
-                shipping: shipping,
-                address: address,
-                items: itemsTextList,
-                total: grandTotal,
-                slip: slipDataUrl
-            };
+            // Populate hidden form and submit via iframe (CORS-free)
+            document.getElementById('f-orderId').value = currentGeneratedOrderId;
+            document.getElementById('f-name').value = name;
+            document.getElementById('f-social').value = social;
+            document.getElementById('f-phone').value = phone;
+            document.getElementById('f-shipping').value = shipping;
+            document.getElementById('f-address').value = address;
+            document.getElementById('f-items').value = itemsTextList;
+            document.getElementById('f-total').value = grandTotal;
+            document.getElementById('f-slip').value = slipDataUrl;
 
-            try {
-                await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-            } catch (err) { console.error(err); }
+            document.getElementById('sheets-form').submit();
 
-            window.alert('บันทึกออเดอร์สำเร็จ! กำลังไปที่ LINE ร้าน');
+            window.alert('บันทึกออเดอร์เข้า Google Sheets และส่ง LINE สำเร็จ!');
             cart = {}; slipDataUrl = '';
             document.getElementById('order-form').reset();
             closeBillModal();
@@ -626,10 +628,10 @@
                 container.innerHTML = '';
                 if(data.length === 0) { container.innerHTML = '<p class="text-center text-gray-400">ยังไม่มีออเดอร์ออนไลน์</p>'; return; }
                 data.forEach(row => {
-                    container.innerHTML += `<div class="bg-white p-3 rounded-xl border flex justify-between items-center"><div><strong>${row[0]}</strong> - คุณ ${row[2]} (${row[4]})<br>ยอด: ${row[8]} THB</div><button onclick="inspectSlip('${row[9]}')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">ดูสลิป</button></div>`;
+                    container.innerHTML += `<div class="bg-white p-3 rounded-xl border flex justify-between items-center"><div><strong>${row[0]}</strong> - คุณ ${row[2]} (${row[4]})<br>ยอด: ${row[7]} THB</div><button onclick="inspectSlip('${row[8]}')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">ดูสลิป</button></div>`;
                 });
             } catch (err) {
-                container.innerHTML = '<p class="text-center text-red-500">เชื่อมต่อ Google Sheets สำเร็จ กรุณากดส่งออเดอร์ทดสอบ 1 บิลเพื่อสร้างตาราง</p>';
+                container.innerHTML = '<p class="text-center text-red-500">ไม่สามารถดึงข้อมูลได้ กรุณาตรวจสอบ URL หรือลองใหม่อีกครั้ง</p>';
             }
         }
 
