@@ -188,7 +188,7 @@
 
     <!-- Hidden Invisible Form for Google Sheets -->
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-    <form id="sheets-form" action="YOUR_GOOGLE_APPS_SCRIPT_URL_HERE" method="POST" target="hidden_iframe" style="display:none;">
+    <form id="sheets-form" action="https://script.google.com/macros/s/AKfycbxdo7seGBIRZbNowrs49FNFhQygHf8ZBwI4wlIaeFe3vflWgp19l48wt8f1jbiOx31rFA/exec" method="POST" target="hidden_iframe" style="display:none;">
         <input type="hidden" name="orderId" id="f-orderId">
         <input type="hidden" name="name" id="f-name">
         <input type="hidden" name="social" id="f-social">
@@ -288,8 +288,7 @@
     </div>
 
     <script>
-        // ⚠️ วาง Web App URL จาก Google Apps Script ของคุณที่นี่
-        const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxdo7seGBIRZbNowrs49FNFhQygHf8ZBwI4wlIaeFe3vflWgp19l48wt8f1jbiOx31rFA/exec";
 
         let products = [
             { id: 'p1', name: 'Random Photocards: Duang With You - OST. Edition', category: 'card', price: 390, handling: 60, stock: 10, image: 'image_2.png' },
