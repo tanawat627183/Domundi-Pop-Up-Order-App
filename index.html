@@ -39,13 +39,10 @@
             <h1 class="text-3xl md:text-5xl font-extrabold tracking-wider text-amber-100 drop-shadow">DOMUNDI POP-UP BOOTH</h1>
             <p class="text-xs md:text-sm text-amber-200 mt-2 font-light tracking-wide">AT ICONIC CRAFT COFFEE EXPO 2026 (16 - 20 SEPT 2026 • ICONSIAM HALL, 7TH FLOOR)</p>
             
-            <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
+            <div class="mt-4 flex items-center justify-center">
                 <div onclick="openAdminDirect()" title="เปิดหลังบ้านออนไลน์" class="inline-flex items-center gap-2 bg-black/40 backdrop-blur-md px-5 py-2 rounded-full text-xs text-amber-300 border border-amber-500/30 shadow-inner cursor-pointer hover:bg-black/60 transition-all select-none">
                     <span><i class="fa-solid fa-warehouse mr-1"></i> ค่าหิ้ว: ทั่วไป +60 บาท | เสื้อ +80 บาท (คลิกเปิดหลังบ้านออนไลน์)</span>
                 </div>
-                <a href="https://lin.ee/OKHl9Bs" target="_blank" class="inline-flex items-center gap-2 bg-[#06C755] hover:bg-[#05b34c] text-white px-4 py-2 rounded-full text-xs font-bold shadow-md transition-all">
-                    <i class="fa-brands fa-line text-sm"></i> เพิ่มเพื่อนทางไลน์ร้าน
-                </a>
             </div>
         </div>
     </header>
@@ -86,9 +83,6 @@
                     <h2 class="text-xl font-bold text-brand-900 flex items-center gap-2">
                         <i class="fa-solid fa-receipt text-brand-500"></i> ตะกร้าสินค้า & ชำระเงิน
                     </h2>
-                    <a href="https://lin.ee/OKHl9Bs" target="_blank" class="text-xs text-[#06C755] font-bold hover:underline flex items-center gap-1">
-                        <i class="fa-brands fa-line text-base"></i> เพิ่มเพื่อนไลน์ร้าน
-                    </a>
                 </div>
 
                 <div id="cart-items" class="space-y-3 mb-5 max-h-52 overflow-y-auto pr-1 custom-scrollbar text-sm">
@@ -185,14 +179,14 @@
                     </div>
 
                     <button type="submit" id="submit-btn" class="w-full mt-5 bg-gradient-to-r from-brand-500 to-brand-650 hover:from-brand-650 hover:to-brand-800 text-white font-bold py-3.5 px-4 rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer text-base">
-                        <i class="fa-solid fa-file-lines text-lg"></i> ตรวจสอบบิลสรุปยอด & ส่งคำสั่งซื้อ
+                        <i class="fa-solid fa-file-lines text-lg"></i> บันทึกคำสั่งซื้อเข้าระบบ
                     </button>
                 </form>
             </div>
         </section>
     </main>
 
-    <!-- Hidden Invisible Form for CORS-free submission to Google Sheets -->
+    <!-- Hidden Invisible Form for Google Sheets -->
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
     <form id="sheets-form" action="YOUR_GOOGLE_APPS_SCRIPT_URL_HERE" method="POST" target="hidden_iframe" style="display:none;">
         <input type="hidden" name="orderId" id="f-orderId">
@@ -211,7 +205,7 @@
         <div class="bg-white rounded-3xl max-w-lg w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-2xl border border-brand-200">
             <div class="flex justify-between items-center pb-3 border-b border-brand-100 mb-4">
                 <h3 class="font-bold text-lg text-brand-900 flex items-center gap-2">
-                    <i class="fa-solid fa-file-invoice-dollar text-brand-500"></i> ใบสรุปคำสั่งซื้อ (Order Invoice)
+                    <i class="fa-solid fa-file-invoice-dollar text-brand-500"></i> บันทึกคำสั่งซื้อสำเร็จ
                 </h3>
                 <button type="button" onclick="closeBillModal()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold px-2 cursor-pointer">&times;</button>
             </div>
@@ -219,7 +213,7 @@
             <div id="bill-printable-area" class="bg-white p-5 rounded-2xl border border-brand-200 space-y-3 mb-4 shadow-sm text-xs font-sans">
                 <div class="text-center pb-3 border-b border-dashed border-gray-300">
                     <h4 class="font-extrabold text-brand-900 text-sm">DOMUNDI POP-UP BOOTH 2026</h4>
-                    <p class="text-[10px] text-gray-500">ใบเสร็จรับเงิน / ใบยืนยันคำสั่งซื้อล่วงหน้า</p>
+                    <p class="text-[10px] text-gray-500">ใบเสร็จรับเงิน / บันทึกออเดอร์สำเร็จ</p>
                     <p id="modal-order-id" class="font-mono font-bold text-brand-650 mt-1"></p>
                 </div>
                 <div id="bill-content-preview" class="space-y-1.5 text-gray-700"></div>
@@ -228,17 +222,12 @@
                 </div>
             </div>
 
-            <div class="bg-amber-50 text-amber-900 p-3.5 rounded-2xl text-xs mb-5 flex items-start gap-2.5 border border-amber-200 shadow-sm">
-                <i class="fa-solid fa-circle-info text-amber-600 mt-0.5 text-base"></i>
-                <span><strong>หมายเหตุ:</strong> กรุณาส่งบิลสั่งซื้อให้ร้านในไลน์ หรือใส่ข้อมูลติดต่อให้ร้านทักหา</span>
-            </div>
-
             <div class="flex flex-col sm:flex-row gap-2.5">
                 <button type="button" onclick="downloadBillImage()" class="flex-1 bg-stone-800 hover:bg-stone-900 text-white font-bold py-3 px-4 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer shadow">
-                    <i class="fa-solid fa-download"></i> บันทึกภาพบิล
+                    <i class="fa-solid fa-download"></i> บันทึกภาพบิลเก็บไว้
                 </button>
-                <button type="button" id="confirm-order-btn" onclick="confirmOrderAndFinalize()" class="flex-1 bg-[#06C755] hover:bg-[#05b34c] text-white font-bold py-3 px-4 rounded-xl shadow-lg transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer">
-                    <i class="fa-brands fa-line text-base"></i> ส่งออเดอร์ให้ร้าน (ไป LINE)
+                <button type="button" onclick="closeBillModal()" class="flex-1 bg-brand-500 hover:bg-brand-650 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition-all text-xs flex items-center justify-center gap-1.5 cursor-pointer">
+                    เสร็จสิ้น
                 </button>
             </div>
         </div>
@@ -274,7 +263,7 @@
                     </button>
                 </div>
                 <div id="online-orders-list" class="space-y-3 max-h-[380px] overflow-y-auto pr-2 custom-scrollbar text-xs">
-                    <p class="text-gray-400 text-center py-8 italic">กำลังโหลดข้อมูลจาก Google Sheets...</p>
+                    <p class="text-gray-400 text-center py-8 italic">กดปุ่ม "โหลดข้อมูลล่าสุด" เพื่อดึงบิลทั้งหมด</p>
                 </div>
             </div>
 
@@ -299,7 +288,7 @@
     </div>
 
     <script>
-        // ใส่ Web App URL ของ Google Apps Script ที่นี่
+        // ⚠️ วาง Web App URL จาก Google Apps Script ของคุณที่นี่
         const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
 
         let products = [
@@ -604,11 +593,10 @@
 
             document.getElementById('sheets-form').submit();
 
-            window.alert('บันทึกออเดอร์เข้า Google Sheets และส่ง LINE สำเร็จ!');
+            window.alert('บันทึกคำสั่งซื้อเข้าระบบหลังบ้านสำเร็จ!');
             cart = {}; slipDataUrl = '';
             document.getElementById('order-form').reset();
             closeBillModal();
-            window.location.href = "https://lin.ee/OKHl9Bs";
         }
 
         function renderAdminInventory() {
@@ -631,7 +619,7 @@
                     container.innerHTML += `<div class="bg-white p-3 rounded-xl border flex justify-between items-center"><div><strong>${row[0]}</strong> - คุณ ${row[2]} (${row[4]})<br>ยอด: ${row[7]} THB</div><button onclick="inspectSlip('${row[8]}')" class="bg-blue-600 text-white px-3 py-1 rounded text-xs">ดูสลิป</button></div>`;
                 });
             } catch (err) {
-                container.innerHTML = '<p class="text-center text-red-500">ไม่สามารถดึงข้อมูลได้ กรุณาตรวจสอบ URL หรือลองใหม่อีกครั้ง</p>';
+                container.innerHTML = '<p class="text-center text-red-500">ไม่สามารถเชื่อมต่อได้ กรุณาตรวจสอบ URL ในโค้ดว่าถูกต้องหรือไม่</p>';
             }
         }
 
